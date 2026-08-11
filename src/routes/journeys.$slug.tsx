@@ -4,7 +4,7 @@ import { Reveal, useParallax } from "@/components/site/Reveal";
 import { HighlightsSection } from "@/components/sections/HighlightsSection";
 import { GallerySection } from "@/components/sections/GallerySection";
 import { EnquirySection } from "@/components/sections/EnquirySection";
-import { getJourney, journeys } from "@/data/journeys";
+import { getJourney, journeys, type Journey } from "@/data/journeys";
 import { site } from "@/data/site";
 
 export const Route = createFileRoute("/journeys/$slug")({
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/journeys/$slug")({
 });
 
 function JourneyDetail() {
-  const { journey } = Route.useLoaderData();
+  const { journey } = Route.useLoaderData() as { journey: Journey };
   const { ref, offset } = useParallax(0.08);
 
   return (
