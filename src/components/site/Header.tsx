@@ -45,7 +45,7 @@ export function Header() {
             className="transition-colors duration-700"
           />
 
-          <nav className="hidden items-center gap-10 lg:flex">
+          <nav className="hidden items-center gap-8 xl:flex 2xl:gap-10">
             {nav.slice(0, 5).map((item) => (
               <Link
                 key={item.to}
@@ -79,7 +79,7 @@ export function Header() {
               onClick={() => setOpen(true)}
               aria-label="Open menu"
               className={cn(
-                "flex flex-col gap-[6px] py-2 lg:hidden",
+                "flex flex-col gap-[6px] py-2 xl:hidden",
                 overlay ? "text-sand" : "text-ink",
               )}
             >
@@ -93,7 +93,7 @@ export function Header() {
       {/* Fullscreen mobile menu */}
       <div
         className={cn(
-          "fixed inset-0 z-[60] flex flex-col bg-ink text-sand transition-all duration-700 lg:hidden",
+          "fixed inset-0 z-[60] flex flex-col bg-ink text-sand transition-all duration-700 xl:hidden",
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
         )}
       >
