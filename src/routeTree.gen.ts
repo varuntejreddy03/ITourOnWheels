@@ -14,6 +14,7 @@ import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as ExperiencesRouteImport } from './routes/experiences'
 import { Route as JourneysRouteImport } from './routes/journeys'
 import { Route as JourneysIndexRouteImport } from './routes/journeys.index'
+import { Route as JourneysSlugRouteImport } from './routes/journeys.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,18 +41,25 @@ const JourneysIndexRoute = JourneysIndexRouteImport.update({
   path: '/',
   getParentRoute: () => JourneysRoute,
 } as any)
+const JourneysSlugRoute = JourneysSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => JourneysRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/destinations': typeof DestinationsRoute
   '/experiences': typeof ExperiencesRoute
   '/journeys': typeof JourneysRouteWithChildren
+  '/journeys/$slug': typeof JourneysSlugRoute
   '/journeys/': typeof JourneysIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/destinations': typeof DestinationsRoute
   '/experiences': typeof ExperiencesRoute
+  '/journeys/$slug': typeof JourneysSlugRoute
   '/journeys': typeof JourneysIndexRoute
 }
 export interface FileRoutesById {
@@ -60,19 +68,27 @@ export interface FileRoutesById {
   '/destinations': typeof DestinationsRoute
   '/experiences': typeof ExperiencesRoute
   '/journeys': typeof JourneysRouteWithChildren
+  '/journeys/$slug': typeof JourneysSlugRoute
   '/journeys/': typeof JourneysIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/destinations' | '/experiences' | '/journeys' | '/journeys/'
+  fullPaths:
+    | '/'
+    | '/destinations'
+    | '/experiences'
+    | '/journeys'
+    | '/journeys/$slug'
+    | '/journeys/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/destinations' | '/experiences' | '/journeys'
+  to: '/' | '/destinations' | '/experiences' | '/journeys/$slug' | '/journeys'
   id:
     | '__root__'
     | '/'
     | '/destinations'
     | '/experiences'
     | '/journeys'
+    | '/journeys/$slug'
     | '/journeys/'
   fileRoutesById: FileRoutesById
 }
@@ -120,14 +136,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JourneysIndexRouteImport
       parentRoute: typeof JourneysRoute
     }
+    '/journeys/$slug': {
+      id: '/journeys/$slug'
+      path: '/$slug'
+      fullPath: '/journeys/$slug'
+      preLoaderRoute: typeof JourneysSlugRouteImport
+      parentRoute: typeof JourneysRoute
+    }
   }
 }
 
 interface JourneysRouteChildren {
+  JourneysSlugRoute: typeof JourneysSlugRoute
   JourneysIndexRoute: typeof JourneysIndexRoute
 }
 
 const JourneysRouteChildren: JourneysRouteChildren = {
+  JourneysSlugRoute: JourneysSlugRoute,
   JourneysIndexRoute: JourneysIndexRoute,
 }
 
@@ -144,3 +169,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
