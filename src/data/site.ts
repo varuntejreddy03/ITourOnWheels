@@ -1,14 +1,15 @@
 /**
- * Brand + contact details. PLACEHOLDER VALUES — replace with the client's
- * real trading name, contact details and social handles.
+ * Brand + contact details. Contact values are still placeholders — replace the
+ * email, phone and social links with the client's real details.
  */
 export const site = {
-  name: "Safarnama",
-  nameLine1: "Safar",
-  nameLine2: "nama",
-  tagline: "Journeys Through India",
-  statement: "India, experienced differently.",
-  email: "hello@example.com",
+  name: "India Tour On Wheels",
+  nameLine1: "India Tour",
+  nameLine2: "On Wheels",
+  legal: "India Tour On Wheels — Travel Agency",
+  tagline: "Explore Incredible India With Us",
+  statement: "Explore incredible India with us.",
+  email: "hello@indiatouronwheels.com",
   phone: "+91 00000 00000",
   location: "New Delhi, India",
   socials: [

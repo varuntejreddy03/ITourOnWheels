@@ -5,10 +5,13 @@ import { journeys } from "@/data/journeys";
 export function JourneysSection({
   eyebrow = "Featured Journeys",
   heading = "Journeys Now Available",
+  limit,
 }: {
   eyebrow?: string;
   heading?: string;
+  limit?: number;
 }) {
+  const items = typeof limit === "number" ? journeys.slice(0, limit) : journeys;
   return (
     <section className="border-y border-line bg-sand-deep/40 py-28 md:py-40">
       <Shell>
