@@ -1,0 +1,53 @@
+import { Eyebrow, Shell } from "@/components/site/Primitives";
+import { EnquiryForm } from "@/components/site/EnquiryForm";
+import { Reveal } from "@/components/site/Reveal";
+import { site } from "@/data/site";
+
+export function EnquirySection() {
+  return (
+    <section id="plan" className="border-t border-line bg-sand-deep/50 py-28 md:py-40">
+      <Shell>
+        <div className="grid gap-16 lg:grid-cols-[1fr_1.3fr] lg:gap-24">
+          <div>
+            <Reveal>
+              <Eyebrow>Plan Your Journey</Eyebrow>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="display-lg mt-8">
+                Let's Plan
+                <br />
+                <span className="italic">Your Journey</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={180}>
+              <p className="body-lead mt-8 max-w-md">
+                Tell us how you like to travel and we will shape an itinerary around it — a listed
+                journey, or something built entirely for you.
+              </p>
+            </Reveal>
+            <Reveal delay={260}>
+              <dl className="mt-14 space-y-6 border-t border-line pt-10 text-sm">
+                <div>
+                  <dt className="text-[0.6rem] uppercase tracking-[0.26em] text-ink-soft">Email</dt>
+                  <dd className="mt-2">{site.email}</dd>
+                </div>
+                <div>
+                  <dt className="text-[0.6rem] uppercase tracking-[0.26em] text-ink-soft">Phone</dt>
+                  <dd className="mt-2">{site.phone}</dd>
+                </div>
+                <div>
+                  <dt className="text-[0.6rem] uppercase tracking-[0.26em] text-ink-soft">Based</dt>
+                  <dd className="mt-2">{site.location}</dd>
+                </div>
+              </dl>
+            </Reveal>
+          </div>
+
+          <Reveal delay={140}>
+            <EnquiryForm />
+          </Reveal>
+        </div>
+      </Shell>
+    </section>
+  );
+}
