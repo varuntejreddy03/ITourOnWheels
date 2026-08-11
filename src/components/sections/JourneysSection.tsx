@@ -23,7 +23,7 @@ export function JourneysSection({
         </Reveal>
 
         <div className="mt-20 space-y-24">
-          {journeys.map((journey, index) =>
+          {items.map((journey, index) =>
             journey.status === "live" ? (
               <Reveal key={journey.slug} delay={index * 80}>
                 <article className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-20">

@@ -30,7 +30,7 @@ export function DestinationsSection({
         </div>
 
         <div className="mt-20 grid gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
-          {destinations.map((destination, index) => (
+          {items.map((destination, index) => (
             <Reveal
               key={destination.slug}
               delay={index * 90}
