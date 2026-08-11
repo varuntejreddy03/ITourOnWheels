@@ -5,10 +5,13 @@ import { journeys } from "@/data/journeys";
 export function JourneysSection({
   eyebrow = "Featured Journeys",
   heading = "Journeys Now Available",
+  limit,
 }: {
   eyebrow?: string;
   heading?: string;
+  limit?: number;
 }) {
+  const items = typeof limit === "number" ? journeys.slice(0, limit) : journeys;
   return (
     <section className="border-y border-line bg-sand-deep/40 py-28 md:py-40">
       <Shell>
@@ -20,7 +23,7 @@ export function JourneysSection({
         </Reveal>
 
         <div className="mt-20 space-y-24">
-          {journeys.map((journey, index) =>
+          {items.map((journey, index) =>
             journey.status === "live" ? (
               <Reveal key={journey.slug} delay={index * 80}>
                 <article className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-20">

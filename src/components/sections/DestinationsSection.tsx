@@ -5,10 +5,13 @@ import { destinations } from "@/data/destinations";
 export function DestinationsSection({
   heading = "Where Will You Go?",
   eyebrow = "Destinations",
+  limit,
 }: {
   heading?: string;
   eyebrow?: string;
+  limit?: number;
 }) {
+  const items = typeof limit === "number" ? destinations.slice(0, limit) : destinations;
   return (
     <section className="bg-sand py-28 md:py-40">
       <Shell>
@@ -27,7 +30,7 @@ export function DestinationsSection({
         </div>
 
         <div className="mt-20 grid gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
-          {destinations.map((destination, index) => (
+          {items.map((destination, index) => (
             <Reveal
               key={destination.slug}
               delay={index * 90}

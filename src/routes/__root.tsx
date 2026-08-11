@@ -80,17 +80,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Luxury Cultural Journeys Across India" },
+      { title: "India Tour On Wheels — Explore Incredible India With Us" },
       {
         name: "description",
         content:
-          "Editorial, culturally led journeys across India — heritage, food, craft and royal Rajasthan.",
+          "India Tour On Wheels designs culturally led journeys across India — heritage, food, craft and royal Rajasthan.",
       },
-      { property: "og:title", content: "Luxury Cultural Journeys Across India" },
+      { property: "og:title", content: "India Tour On Wheels" },
       {
         property: "og:description",
         content:
-          "Editorial, culturally led journeys across India — heritage, food, craft and royal Rajasthan.",
+          "Culturally led journeys across India — heritage, food, craft and royal Rajasthan.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -106,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,
