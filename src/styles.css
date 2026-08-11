@@ -6,7 +6,7 @@
 
 /*
  * Brand design system — editorial Indian luxury travel.
- * Sand background, ink text, terracotta accent, muted teals.
+ * Cream background, navy ink, antique-gold accents — from the brand crest.
  */
 @theme inline {
   --font-display: "Cormorant Garamond", Georgia, serif;
@@ -84,14 +84,14 @@
   --radius: 0.1875rem;
 
   /* brand palette */
-  --sand: oklch(0.951 0.014 79);
-  --sand-deep: oklch(0.915 0.019 76);
-  --ink: oklch(0.253 0.012 45);
-  --ink-soft: oklch(0.474 0.014 50);
-  --terracotta: oklch(0.607 0.146 29);
-  --teal: oklch(0.771 0.045 214);
-  --teal-deep: oklch(0.615 0.05 214);
-  --line: oklch(0.253 0.012 45 / 14%);
+  --sand: oklch(0.957 0.015 85);
+  --sand-deep: oklch(0.912 0.025 84);
+  --ink: oklch(0.283 0.062 259);
+  --ink-soft: oklch(0.472 0.045 258);
+  --terracotta: oklch(0.618 0.115 81);
+  --teal: oklch(0.828 0.082 87);
+  --teal-deep: oklch(0.585 0.105 82);
+  --line: oklch(0.283 0.062 259 / 16%);
   --shadow-soft-v: 0 1px 2px oklch(0.253 0.012 45 / 5%), 0 18px 40px -24px oklch(0.253 0.012 45 / 18%);
   --shadow-lift-v: 0 24px 70px -32px oklch(0.253 0.012 45 / 32%);
 
