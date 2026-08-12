@@ -36,7 +36,7 @@ export function Hero() {
           <Reveal delay={240}>
             <p className="max-w-xl text-lg leading-relaxed text-sand/75">
               Discover India's timeless cities, living traditions and unforgettable journeys through
-              experiences designed for curious travellers.
+              experiences designed for curious travelers.
             </p>
           </Reveal>
 

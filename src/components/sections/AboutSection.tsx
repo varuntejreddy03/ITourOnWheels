@@ -20,14 +20,14 @@ export function AboutSection({ withLink = true }: { withLink?: boolean }) {
             </Reveal>
             <Reveal delay={180}>
               <p className="mt-10 max-w-lg text-lg leading-relaxed text-sand/70">
-                We design journeys across India for travellers who want to understand a place, not
+                We design journeys across India for travelers who want to understand a place, not
                 only photograph it. Every itinerary is built around culture, craft, food and the
                 people who carry those traditions forward.
               </p>
             </Reveal>
             <Reveal delay={260}>
               <p className="mt-8 max-w-lg text-sm leading-relaxed text-sand/55">
-                We work with a small number of travellers at a time, choose hotels for character as
+                We work with a small number of travelers at a time, choose hotels for character as
                 much as comfort, and host each journey personally from arrival to departure.
               </p>
             </Reveal>

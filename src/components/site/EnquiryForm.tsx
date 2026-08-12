@@ -10,7 +10,7 @@ const empty = {
   phone: "",
   destination: "",
   dates: "",
-  travellers: "",
+  travelers: "",
   journey: "",
   message: "",
 };
@@ -121,15 +121,15 @@ export function EnquiryForm() {
       </div>
 
       <div>
-        <label className={labelClass} htmlFor="travellers">
-          Number Of Travellers
+        <label className={labelClass} htmlFor="travelers">
+          Number Of Travelers
         </label>
         <input
-          id="travellers"
-          name="travellers"
+          id="travelers"
+          name="travelers"
           type="number"
           min={1}
-          value={values.travellers}
+          value={values.travelers}
           onChange={update}
           placeholder="2"
           className={fieldClass}
