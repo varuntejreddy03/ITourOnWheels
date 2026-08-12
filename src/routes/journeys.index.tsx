@@ -27,7 +27,7 @@ function JourneysPage() {
         eyebrow="Journeys"
         title="Featured"
         italic="Journeys"
-        intro="A small, growing collection. Each journey is published only once every hotel, host and experience is confirmed."
+        intro="A small, growing collection built for U.S. travelers. The 7 Days / 6 Nights Luxury Golden Triangle is our starting point — new routes are published only once every hotel, host and experience is confirmed."
       />
       <JourneysSection eyebrow="Available Now" heading="Current Collection" />
       <EnquirySection />

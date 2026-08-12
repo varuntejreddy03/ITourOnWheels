@@ -2,7 +2,7 @@ import { Eyebrow, Shell } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 
 /**
- * Traveller stories. Intentionally empty of content — no invented reviews.
+ * Traveler stories. Intentionally empty of content — no invented reviews.
  * Replace each slot with a real quote, name and journey when supplied.
  */
 const slots = [
@@ -16,7 +16,7 @@ export function StoriesSection() {
     <section className="bg-sand py-28 md:py-40">
       <Shell>
         <Reveal>
-          <Eyebrow>Traveller Stories</Eyebrow>
+          <Eyebrow>Traveler Stories</Eyebrow>
         </Reveal>
         <Reveal delay={100}>
           <h2 className="display-lg mt-8 max-w-3xl">
@@ -27,7 +27,7 @@ export function StoriesSection() {
         </Reveal>
         <Reveal delay={180}>
           <p className="body-lead mt-8 max-w-xl">
-            Stories from our travellers will be published here as journeys are completed. We only
+            Stories from our travelers will be published here as journeys are completed. We only
             share words we have actually been given.
           </p>
         </Reveal>

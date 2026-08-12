@@ -63,7 +63,7 @@ export const journeys: Journey[] = [
       "Three cities, one unbroken story of empires, craft and everyday Indian life — travelled slowly, stayed comfortably, hosted personally.",
     intro: [
       "The Golden Triangle is India's most travelled route, and the easiest one to travel badly. This journey slows it down: sunrise before the crowds, afternoons in courtyards rather than coaches, evenings spent with musicians, cooks and craftspeople.",
-      "Seven days between Delhi, Agra and Jaipur, in 4 and 5-star hotels, with private air-conditioned transport and a dedicated host travelling with you throughout.",
+      "Seven days between Delhi, Agra and Jaipur, in 4 and 5-star hotels, with private air-conditioned transport and a dedicated host traveling with you throughout.",
     ],
     image: hero,
     facts: [
@@ -157,7 +157,7 @@ export const journeys: Journey[] = [
         title: "Taj Mahal At Sunrise",
         place: "Agra",
         description:
-          "Entering as the gates open, before the heat and the crowds, when the marble changes colour minute by minute.",
+          "Entering as the gates open, before the heat and the crowds, when the marble changes color minute by minute.",
         image: taj,
       },
       {
@@ -178,7 +178,7 @@ export const journeys: Journey[] = [
         title: "Rajasthani Turban Experience",
         place: "Jaipur",
         description:
-          "Nine metres of cotton, tied the traditional way, with the meaning behind every colour and fold.",
+          "Thirty feet of cotton, tied the traditional way, with the meaning behind every color and fold.",
         image: turban,
       },
       {

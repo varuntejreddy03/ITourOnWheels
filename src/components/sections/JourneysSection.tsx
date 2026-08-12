@@ -68,6 +68,11 @@ export function JourneysSection({
         </div>
 
         <div className="mt-24 grid gap-8 md:grid-cols-2">
+          <Reveal className="md:col-span-2">
+            <p className="text-[0.62rem] uppercase tracking-[0.26em] text-teal-deep">
+              In Preparation — More Journeys Coming
+            </p>
+          </Reveal>
           {journeys
             .filter((journey) => journey.status === "coming-soon")
             .map((journey, index) => (

@@ -32,6 +32,10 @@ export function FeaturedJourney() {
               <Action to="/journeys/$slug" params={{ slug: journey.slug }}>
                 Explore This Journey
               </Action>
+              <p className="mt-6 max-w-md text-sm leading-relaxed text-ink-soft">
+                Our first published journey. More routes across Rajasthan, South India and the
+                Himalaya are being prepared — this collection grows every season.
+              </p>
             </Reveal>
             <Reveal delay={400}>
               <dl className="mt-16 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-line pt-10">
