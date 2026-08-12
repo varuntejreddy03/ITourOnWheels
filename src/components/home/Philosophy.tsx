@@ -1,4 +1,4 @@
-import philosophy from "@/assets/philosophy.jpg";
+import philosophy from "@/assets/philosophy.webp";
 import { Eyebrow, ParallaxImage, Shell, TextLink } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 

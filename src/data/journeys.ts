@@ -1,13 +1,13 @@
-import hero from "@/assets/featured-golden-triangle.jpg";
-import taj from "@/assets/exp-taj-sunrise.jpg";
-import rickshaw from "@/assets/exp-rickshaw.jpg";
-import musicNight from "@/assets/exp-music-night.jpg";
-import turban from "@/assets/exp-turban.jpg";
-import bonfire from "@/assets/exp-bonfire.jpg";
-import royal from "@/assets/exp-royal.jpg";
-import delhi from "@/assets/dest-delhi.jpg";
-import agra from "@/assets/dest-agra.jpg";
-import jaipur from "@/assets/dest-jaipur.jpg";
+import hero from "@/assets/featured-golden-triangle.webp";
+import taj from "@/assets/exp-taj-sunrise.webp";
+import rickshaw from "@/assets/exp-rickshaw.webp";
+import musicNight from "@/assets/exp-music-night.webp";
+import turban from "@/assets/exp-turban.webp";
+import bonfire from "@/assets/exp-bonfire.webp";
+import royal from "@/assets/exp-royal.webp";
+import delhi from "@/assets/dest-delhi.webp";
+import agra from "@/assets/dest-agra.webp";
+import jaipur from "@/assets/dest-jaipur.webp";
 
 export type ItineraryDay = {
   day: number;

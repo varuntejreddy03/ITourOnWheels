@@ -1,6 +1,6 @@
-import delhi from "@/assets/dest-delhi.jpg";
-import agra from "@/assets/dest-agra.jpg";
-import jaipur from "@/assets/dest-jaipur.jpg";
+import delhi from "@/assets/dest-delhi.webp";
+import agra from "@/assets/dest-agra.webp";
+import jaipur from "@/assets/dest-jaipur.webp";
 
 export type Destination = {
   slug: string;

@@ -1,4 +1,4 @@
-import hero from "@/assets/hero-taj-sunrise.jpg";
+import hero from "@/assets/hero-taj-sunrise.webp";
 import { Action, Eyebrow } from "@/components/site/Primitives";
 import { Reveal, useParallax } from "@/components/site/Reveal";
 
