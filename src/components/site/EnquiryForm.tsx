@@ -2,6 +2,7 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { toast } from "sonner";
 import { destinations } from "@/data/destinations";
 import { journeys } from "@/data/journeys";
+import { site } from "@/data/site";
 import { Action } from "./Primitives";
 
 const empty = {
@@ -16,12 +17,18 @@ const empty = {
 };
 
 const fieldClass =
-  "w-full border-b border-line bg-transparent pb-3 text-base text-ink placeholder:text-ink-soft/60 focus:border-terracotta focus:outline-none transition-colors duration-500";
+  "w-full border-b border-line bg-transparent pt-2 pb-3 text-base text-ink placeholder:text-ink-soft/60 focus:border-terracotta focus:outline-none transition-colors duration-500";
 
-const labelClass = "mb-3 block text-[0.62rem] uppercase tracking-[0.26em] text-ink-soft";
+const labelClass = "mb-3 block text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft";
 
-export function EnquiryForm() {
-  const [values, setValues] = useState(empty);
+export function EnquiryForm({
+  defaultDestination = "",
+  defaultJourney = "",
+}: {
+  defaultDestination?: string;
+  defaultJourney?: string;
+}) {
+  const [values, setValues] = useState(() => ({ ...empty, destination: defaultDestination, journey: defaultJourney }));
 
   const update = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
@@ -29,9 +36,23 @@ export function EnquiryForm() {
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
-    // No backend connected yet — enquiries are not stored or emailed.
-    toast.success("Thank you — your enquiry details are ready to send", {
-      description: "Connect an email or database to start receiving enquiries.",
+    // ponytail: no backend yet — mailto is the zero-dependency stopgap. Swap for a real
+    // email/CRM endpoint (e.g. Resend, Formspree) once one is chosen.
+    const subject = `Journey enquiry from ${values.name || "the website"}`;
+    const body = [
+      `Name: ${values.name}`,
+      `Email: ${values.email}`,
+      `Phone: ${values.phone}`,
+      `Destination: ${values.destination || "Not specified"}`,
+      `Travel dates: ${values.dates || "Flexible"}`,
+      `Number of travelers: ${values.travelers || "Not specified"}`,
+      `Interested journey: ${values.journey || "Not specified"}`,
+      "",
+      values.message,
+    ].join("\n");
+    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    toast.success("Opening your email to send this enquiry", {
+      description: `If nothing opens, email us directly at ${site.email}.`,
     });
     setValues(empty);
   };
@@ -46,6 +67,7 @@ export function EnquiryForm() {
           id="name"
           name="name"
           required
+          autoComplete="name"
           value={values.name}
           onChange={update}
           placeholder="Your full name"
@@ -62,6 +84,7 @@ export function EnquiryForm() {
           name="email"
           type="email"
           required
+          autoComplete="email"
           value={values.email}
           onChange={update}
           placeholder="you@email.com"
@@ -76,6 +99,9 @@ export function EnquiryForm() {
         <input
           id="phone"
           name="phone"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
           value={values.phone}
           onChange={update}
           placeholder="With country code"
@@ -174,8 +200,9 @@ export function EnquiryForm() {
         />
       </div>
 
-      <div className="sm:col-span-2">
+      <div className="sm:col-span-2 flex flex-wrap items-center gap-5">
         <Action type="submit">Send Enquiry</Action>
+        <p className="text-sm text-ink-soft">We reply personally within one working day.</p>
       </div>
     </form>
   );

@@ -38,11 +38,11 @@ export function JourneysSection({
                     </div>
                   </div>
                   <div className="flex flex-col justify-center">
-                    <p className="text-[0.62rem] uppercase tracking-[0.26em] text-teal-deep">
+                    <p className="text-[0.7rem] uppercase tracking-[0.26em] text-teal-deep">
                       {journey.duration}
                     </p>
                     <h3 className="display-md mt-5">{journey.title}</h3>
-                    <p className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-ink-soft">
+                    <p className="mt-4 text-[0.7rem] uppercase tracking-[0.22em] text-ink-soft">
                       {journey.route}
                     </p>
                     <p className="mt-6 max-w-md text-sm leading-relaxed text-ink-soft">
@@ -56,7 +56,7 @@ export function JourneysSection({
                       ))}
                     </ul>
                     <div className="mt-10">
-                      <Action to="/journeys/$slug" params={{ slug: journey.slug }} variant="outline">
+                      <Action to={`/journeys/${journey.slug}`} variant="outline">
                         View Journey
                       </Action>
                     </div>
@@ -69,8 +69,8 @@ export function JourneysSection({
 
         <div className="mt-24 grid gap-8 md:grid-cols-2">
           <Reveal className="md:col-span-2">
-            <p className="text-[0.62rem] uppercase tracking-[0.26em] text-teal-deep">
-              In Preparation — More Journeys Coming
+            <p className="text-[0.7rem] uppercase tracking-[0.26em] text-teal-deep">
+              Being Organised — More Journeys Coming
             </p>
           </Reveal>
           {journeys
@@ -78,7 +78,7 @@ export function JourneysSection({
             .map((journey, index) => (
               <Reveal key={journey.slug} delay={index * 80}>
                 <article className="flex h-full flex-col border border-dashed border-line p-10">
-                  <span className="text-[0.6rem] uppercase tracking-[0.26em] text-teal-deep">
+                  <span className="text-[0.7rem] uppercase tracking-[0.26em] text-teal-deep">
                     {journey.label}
                   </span>
                   <h3 className="mt-6 font-[family-name:var(--font-display)] text-3xl">

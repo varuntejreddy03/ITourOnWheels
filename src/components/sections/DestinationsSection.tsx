@@ -36,7 +36,7 @@ export function DestinationsSection({
               delay={index * 90}
               className={index % 3 === 1 ? "lg:mt-20" : undefined}
             >
-              {destination.status === "live" && destination.image ? (
+              {destination.status === "live" ? (
                 <article className="img-zoom group">
                   <div className="aspect-[3/4] overflow-hidden bg-sand-deep">
                     <img
@@ -50,11 +50,16 @@ export function DestinationsSection({
                     <h3 className="font-[family-name:var(--font-display)] text-3xl">
                       {destination.name}
                     </h3>
-                    <span className="text-[0.6rem] uppercase tracking-[0.26em] text-ink-soft">
+                    <span className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">
                       {destination.region}
                     </span>
                   </div>
-                  <p className="mt-3 text-[0.68rem] uppercase tracking-[0.2em] text-teal-deep">
+                  {destination.extensionOnly && (
+                    <p className="mt-2 text-[0.7rem] uppercase tracking-[0.2em] text-terracotta">
+                      Extension Only — Not A Standalone Trip
+                    </p>
+                  )}
+                  <p className="mt-3 text-[0.7rem] uppercase tracking-[0.2em] text-teal-deep">
                     {destination.themes.join(" · ")}
                   </p>
                   <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-soft">

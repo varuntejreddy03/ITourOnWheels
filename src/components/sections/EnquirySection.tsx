@@ -3,7 +3,13 @@ import { EnquiryForm } from "@/components/site/EnquiryForm";
 import { Reveal } from "@/components/site/Reveal";
 import { site } from "@/data/site";
 
-export function EnquirySection() {
+export function EnquirySection({
+  defaultDestination,
+  defaultJourney,
+}: {
+  defaultDestination?: string;
+  defaultJourney?: string;
+}) {
   return (
     <section id="plan" className="border-t border-line bg-sand-deep/50 py-28 md:py-40">
       <Shell>
@@ -28,15 +34,19 @@ export function EnquirySection() {
             <Reveal delay={260}>
               <dl className="mt-14 space-y-6 border-t border-line pt-10 text-sm">
                 <div>
-                  <dt className="text-[0.6rem] uppercase tracking-[0.26em] text-ink-soft">Email</dt>
-                  <dd className="mt-2">{site.email}</dd>
+                  <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">Email</dt>
+                  <dd className="mt-2">
+                    <a href={`mailto:${site.email}`} className="link-underline">{site.email}</a>
+                  </dd>
                 </div>
                 <div>
-                  <dt className="text-[0.6rem] uppercase tracking-[0.26em] text-ink-soft">Phone</dt>
-                  <dd className="mt-2">{site.phone}</dd>
+                  <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">Phone</dt>
+                  <dd className="mt-2">
+                    <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`} className="link-underline">{site.phone}</a>
+                  </dd>
                 </div>
                 <div>
-                  <dt className="text-[0.6rem] uppercase tracking-[0.26em] text-ink-soft">Based</dt>
+                  <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">Based</dt>
                   <dd className="mt-2">{site.location}</dd>
                 </div>
               </dl>
@@ -44,7 +54,7 @@ export function EnquirySection() {
           </div>
 
           <Reveal delay={140}>
-            <EnquiryForm />
+            <EnquiryForm defaultDestination={defaultDestination} defaultJourney={defaultJourney} />
           </Reveal>
         </div>
       </Shell>

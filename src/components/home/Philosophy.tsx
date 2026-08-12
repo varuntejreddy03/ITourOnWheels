@@ -11,28 +11,29 @@ export function Philosophy() {
         </Reveal>
         <Reveal delay={100}>
           <h2 className="display-lg mt-8 max-w-4xl">
-            Travel Beyond
+            See Less.
             <br />
-            <span className="italic">The Ordinary</span>
+            <span className="italic">Feel More.</span>
           </h2>
         </Reveal>
 
         <div className="mt-20 grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
-          <Reveal variant="clip">
-            <ParallaxImage
+          <ParallaxImage
               src={philosophy}
               alt="An Indian artisan at work in a sunlit workshop"
               className="aspect-[4/5] w-full"
               width={1000}
               height={1300}
+              eager
             />
-          </Reveal>
 
           <div className="lg:pt-16">
             <Reveal delay={120}>
               <p className="font-[family-name:var(--font-display)] text-[clamp(1.6rem,2.6vw,2.4rem)] leading-[1.25]">
-                Travel is more than visiting places. It is about experiencing the stories, people,
-                culture, food and traditions that make each destination unique.
+                Anyone can show you the Taj Mahal at sunrise. We want you to also remember the
+                sitar player in an empty haveli courtyard, the block printer whose hands move
+                faster than you can watch, and the thirty feet of cotton a Jaipur elder ties into
+                your first turban.
               </p>
             </Reveal>
             <Reveal delay={220}>

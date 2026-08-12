@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import { Eyebrow, Shell } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { experienceCategories } from "@/data/experiences";
+import { featuredJourney } from "@/data/journeys";
 
 export function ExperiencesSection({
-  eyebrow = "Experiences",
+  eyebrow = "Travel Styles",
   heading = "How You Travel Matters",
 }: {
   eyebrow?: string;
@@ -23,10 +25,13 @@ export function ExperiencesSection({
       <div className="mt-20 border-t border-sand/12">
         {experienceCategories.map((experience, index) => (
           <Reveal key={experience.slug} delay={index * 60}>
-            <article className="group relative border-b border-sand/12">
+            <Link
+              to={`/journeys/${featuredJourney.slug}`}
+              className="group relative block border-b border-sand/12"
+            >
               <Shell className="relative z-10 flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between md:py-16">
                 <div className="flex items-baseline gap-8">
-                  <span className="text-[0.62rem] tracking-[0.26em] text-sand/40">
+                  <span className="text-[0.7rem] tracking-[0.26em] text-sand/40">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <h3 className="font-[family-name:var(--font-display)] text-[clamp(2rem,4vw,3.4rem)] leading-none text-sand transition-colors duration-700 group-hover:text-terracotta">
@@ -61,7 +66,7 @@ export function ExperiencesSection({
                   </div>
                 </Shell>
               </div>
-            </article>
+            </Link>
           </Reveal>
         ))}
       </div>

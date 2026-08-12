@@ -1,127 +1,169 @@
 import { useEffect, useState } from "react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import { NavLink, useLocation } from "react-router-dom";
 import { nav, site } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { Wordmark } from "./Wordmark";
 
 export function Header() {
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const overlay = pathname === "/" && !scrolled;
+  const hasDarkHero = pathname === "/" || /^\/journeys\/[^/]+$/.test(pathname) || /^\/destinations\/[^/]+$/.test(pathname);
+  const overlay = hasDarkHero && !scrolled;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 48);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  useEffect(() => { setOpen(false); }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [open]);
 
   return (
     <>
+      {/* ── Desktop / scrolled header ─────────────────────────────────────── */}
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-700",
           overlay
-            ? "bg-transparent py-8"
-            : "border-b border-line bg-sand/92 py-5 backdrop-blur-md",
+            ? "py-7"
+            : "border-b border-line bg-sand/95 py-4 shadow-[0_1px_24px_-8px_rgba(0,0,0,0.08)] backdrop-blur-md",
         )}
       >
-        <div className="mx-auto flex w-full max-w-[92rem] items-center justify-between px-6 md:px-12">
-          <Wordmark
-            tone={overlay ? "sand" : "ink"}
-            className="transition-colors duration-700"
-          />
+        <div className="mx-auto flex w-full max-w-[92rem] items-center justify-between px-6 lg:px-12">
 
-          <nav className="hidden items-center gap-8 xl:flex 2xl:gap-10">
+          {/* Logo */}
+          <Wordmark tone={overlay ? "sand" : "ink"} className="transition-all duration-700" />
+
+          {/* Desktop nav — centred */}
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 xl:flex">
             {nav.slice(0, 5).map((item) => (
-              <Link
+              <NavLink
                 key={item.to}
                 to={item.to}
-                className={cn(
-                  "link-underline text-[0.7rem] uppercase tracking-[0.22em] transition-colors duration-500",
-                  overlay ? "text-sand/85 hover:text-sand" : "text-ink-soft hover:text-ink",
+                className={({ isActive }) => cn(
+                  "relative text-[0.7rem] uppercase tracking-[0.24em] transition-colors duration-500 after:absolute after:-bottom-[3px] after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-500 hover:after:scale-x-100",
+                  overlay
+                    ? "text-sand/80 hover:text-sand"
+                    : "text-ink/60 hover:text-ink",
+                  isActive && (overlay ? "text-sand after:scale-x-100" : "text-terracotta after:scale-x-100"),
                 )}
-                activeProps={{ className: "text-terracotta" }}
               >
                 {item.label}
-              </Link>
+              </NavLink>
             ))}
           </nav>
 
-          <div className="flex items-center gap-6">
-            <Link
+          {/* Right side */}
+          <div className="flex items-center gap-5">
+            {/* CTA button — desktop */}
+            <NavLink
               to="/contact"
               className={cn(
-                "hidden rounded-[2px] border px-6 py-3 text-[0.65rem] uppercase tracking-[0.24em] transition-all duration-500 md:inline-block",
+                "hidden text-[0.7rem] uppercase tracking-[0.26em] transition-all duration-500 xl:inline-flex items-center gap-2",
                 overlay
-                  ? "border-sand/50 text-sand hover:bg-sand hover:text-ink"
-                  : "border-terracotta text-terracotta hover:bg-terracotta hover:text-sand",
+                  ? "text-sand/80 hover:text-sand"
+                  : "text-terracotta hover:text-ink",
               )}
             >
               Plan Your Journey
-            </Link>
+              <span className={cn(
+                "inline-block h-[1px] w-6 bg-current transition-all duration-500",
+              )} />
+            </NavLink>
 
+            {/* Hamburger — mobile */}
             <button
               type="button"
               onClick={() => setOpen(true)}
               aria-label="Open menu"
               className={cn(
-                "flex flex-col gap-[6px] py-2 xl:hidden",
-                overlay ? "text-sand" : "text-ink",
+                "relative flex h-11 w-11 flex-col items-center justify-center gap-[5px] xl:hidden",
               )}
             >
-              <span className="block h-[1px] w-8 bg-current" />
-              <span className="block h-[1px] w-8 bg-current" />
+              <span className={cn(
+                "block h-[1.5px] w-6 origin-center bg-current transition-all duration-500",
+                overlay ? "text-sand bg-sand" : "bg-ink",
+              )} />
+              <span className={cn(
+                "block h-[1.5px] w-4 origin-center bg-current transition-all duration-500",
+                overlay ? "bg-sand" : "bg-ink",
+              )} />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Fullscreen mobile menu */}
+      {/* ── Mobile drawer ─────────────────────────────────────────────────── */}
+      {/* Backdrop */}
+      <div
+        onClick={() => setOpen(false)}
+        className={cn(
+          "fixed inset-0 z-[60] bg-ink/60 backdrop-blur-sm transition-opacity duration-500 xl:hidden",
+          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
+        )}
+      />
+
+      {/* Drawer panel — slides in from right */}
       <div
         className={cn(
-          "fixed inset-0 z-[60] flex flex-col bg-ink text-sand transition-all duration-700 xl:hidden",
-          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
+          "fixed inset-y-0 right-0 z-[70] flex w-[min(100vw,420px)] flex-col bg-ink text-sand transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] xl:hidden",
+          open ? "translate-x-0" : "translate-x-full",
         )}
       >
-        <div className="flex items-center justify-between px-6 py-8 md:px-12">
+        {/* Drawer header */}
+        <div className="flex items-center justify-between border-b border-sand/10 px-8 py-6">
           <Wordmark tone="sand" />
           <button
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close menu"
-            className="text-[0.7rem] uppercase tracking-[0.24em] text-sand/70"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-sand/15 text-sand/60 transition-colors hover:border-sand/40 hover:text-sand"
           >
-            Close
+            {/* × icon */}
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M1 1l12 12M13 1L1 13" />
+            </svg>
           </button>
         </div>
-        <nav className="flex flex-1 flex-col justify-center gap-2 px-6 md:px-12">
-          {nav.map((item, index) => (
-            <Link
+
+        {/* Nav links */}
+        <nav className="flex flex-1 flex-col justify-center px-8 gap-1">
+          {nav.map((item, i) => (
+            <NavLink
               key={item.to}
               to={item.to}
-              className="font-[family-name:var(--font-display)] text-4xl tracking-tight text-sand/90 transition-colors hover:text-terracotta"
-              style={{ transitionDelay: `${index * 30}ms` }}
+              style={{ transitionDelay: open ? `${i * 55}ms` : "0ms" }}
+              className={({ isActive }) => cn(
+                "group flex items-center justify-between border-b border-sand/8 py-5 font-[family-name:var(--font-display)] text-[2.2rem] leading-none tracking-tight transition-all duration-500",
+                open ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0",
+                isActive ? "text-terracotta" : "text-sand/85 hover:text-sand",
+              )}
             >
               {item.label}
-            </Link>
+              <span className="text-[0.7rem] uppercase tracking-[0.2em] text-sand/30 transition-colors group-hover:text-sand/60">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+            </NavLink>
           ))}
         </nav>
-        <div className="border-t border-sand/15 px-6 py-8 text-[0.7rem] uppercase tracking-[0.22em] text-sand/60 md:px-12">
-          {site.email}
+
+        {/* Drawer footer */}
+        <div className="border-t border-sand/10 px-8 py-6 space-y-1">
+          <p className="text-[0.7rem] uppercase tracking-[0.26em] text-sand/35">Get in touch</p>
+          <a
+            href={`mailto:${site.email}`}
+            className="block text-sm text-sand/70 transition-colors hover:text-sand"
+          >
+            {site.email}
+          </a>
         </div>
       </div>
     </>

@@ -22,7 +22,7 @@ export function AboutSection({ withLink = true }: { withLink?: boolean }) {
               <p className="mt-10 max-w-lg text-lg leading-relaxed text-sand/70">
                 We design journeys across India for travelers who want to understand a place, not
                 only photograph it. Every itinerary is built around culture, craft, food and the
-                people who carry those traditions forward.
+                people who still make it by hand.
               </p>
             </Reveal>
             <Reveal delay={260}>
@@ -38,15 +38,13 @@ export function AboutSection({ withLink = true }: { withLink?: boolean }) {
             )}
           </div>
 
-          <Reveal variant="clip">
-            <ParallaxImage
+          <ParallaxImage
               src={about}
               alt="Candlelit heritage courtyard dining in Rajasthan"
               className="aspect-[4/3] w-full"
               width={1600}
               height={1000}
             />
-          </Reveal>
         </div>
       </Shell>
     </section>

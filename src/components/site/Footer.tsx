@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { site } from "@/data/site";
 import { Wordmark } from "./Wordmark";
 
@@ -15,16 +15,8 @@ const columns = [
   {
     title: "Company",
     links: [
-      { label: "About", to: "/about" },
+      { label: "About Us", to: "/about" },
       { label: "Contact", to: "/contact" },
-      { label: "FAQs", to: "/faqs" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy Policy", to: "/privacy" },
-      { label: "Terms & Conditions", to: "/terms" },
     ],
   },
 ];
@@ -44,7 +36,7 @@ export function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
-                  className="link-underline text-[0.65rem] uppercase tracking-[0.24em] text-sand/70 hover:text-sand"
+                  className="link-underline inline-block py-2 text-[0.7rem] uppercase tracking-[0.24em] text-sand/70 hover:text-sand"
                 >
                   {social.label}
                 </a>
@@ -55,7 +47,7 @@ export function Footer() {
           <div className="grid gap-12 sm:grid-cols-3">
             {columns.map((column) => (
               <div key={column.title}>
-                <h3 className="text-[0.65rem] uppercase tracking-[0.28em] text-teal">
+                <h3 className="text-[0.7rem] uppercase tracking-[0.28em] text-teal">
                   {column.title}
                 </h3>
                 <ul className="mt-6 space-y-4">
@@ -79,9 +71,9 @@ export function Footer() {
           {site.statement}
         </p>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-sand/15 pt-8 text-[0.65rem] uppercase tracking-[0.22em] text-sand/45 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-sand/15 pt-8 text-[0.7rem] uppercase tracking-[0.22em] text-sand/45 md:flex-row md:items-center md:justify-between">
           <span>
-            © {new Date().getFullYear()} {site.name}
+            © {new Date().getFullYear()} {site.legal}
           </span>
           <span>{site.location}</span>
         </div>

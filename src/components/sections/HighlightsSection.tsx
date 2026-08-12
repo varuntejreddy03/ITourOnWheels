@@ -49,7 +49,7 @@ export function HighlightsSection({
                   <div className={cn(flipped ? "lg:order-1" : "lg:order-2")}>
                     <span
                       className={cn(
-                        "text-[0.6rem] uppercase tracking-[0.28em]",
+                        "text-[0.7rem] uppercase tracking-[0.28em]",
                         dark ? "text-sand/50" : "text-ink-soft",
                       )}
                     >

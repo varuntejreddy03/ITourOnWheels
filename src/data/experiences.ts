@@ -16,31 +16,31 @@ export const experienceCategories: ExperienceCategory[] = [
   {
     slug: "heritage-history",
     title: "Heritage & History",
-    description: "Explore India's monuments, forts and historic streets.",
+    description: "Forts that held off empires, tombs older than most nations, streets where the 17th century never quite left.",
     image: heritage,
   },
   {
     slug: "culinary-journeys",
     title: "Culinary Journeys",
-    description: "Discover authentic Indian food and local flavours.",
+    description: "Meals cooked the way families actually cook them — not the menu written for tourists.",
     image: culinary,
   },
   {
     slug: "culture-traditions",
     title: "Culture & Traditions",
-    description: "Experience music, dance, crafts and living traditions.",
+    description: "Craftsmen, musicians and dancers keeping traditions alive that time has mostly forgotten elsewhere.",
     image: culture,
   },
   {
     slug: "royal-experiences",
     title: "Royal Experiences",
-    description: "Step into India's palaces, forts and royal heritage.",
+    description: "Palaces some royal families still call home — and the kind of evenings once reserved for maharajas.",
     image: royal,
   },
   {
     slug: "nature-adventure",
     title: "Nature & Adventure",
-    description: "Discover landscapes beyond India's famous cities.",
+    description: "The Himalayan foothills, the Ganges at dawn, and the India that has nothing to do with monuments.",
     image: nature,
   },
 ];

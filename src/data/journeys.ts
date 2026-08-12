@@ -8,6 +8,13 @@ import royal from "@/assets/exp-royal.webp";
 import delhi from "@/assets/dest-delhi.webp";
 import agra from "@/assets/dest-agra.webp";
 import jaipur from "@/assets/dest-jaipur.webp";
+import dayDelhi from "@/assets/day-delhi-arrival.webp";
+import dayOldDelhi from "@/assets/day-old-delhi.webp";
+import dayAgraFort from "@/assets/day-agra-fort.webp";
+import dayTajMorning from "@/assets/day-taj-morning.webp";
+import dayJaipurAmber from "@/assets/day-jaipur-amber.webp";
+import dayJaipurCulture from "@/assets/day-jaipur-culture.webp";
+import dayFarewell from "@/assets/day-farewell.webp";
 
 export type ItineraryDay = {
   day: number;
@@ -43,185 +50,181 @@ export type Journey = {
   notes: string[];
 };
 
-/**
- * All journeys render from this list. Add a new object to publish a journey;
- * `status: "coming-soon"` renders a placeholder card with no detail page.
- *
- * NOTE: itinerary copy below is editable placeholder structure based on the
- * 7 Days / 6 Nights Golden Triangle outline — replace with the client's final wording.
- */
 export const journeys: Journey[] = [
   {
     slug: "luxury-golden-triangle",
     status: "live",
-    label: "Featured Journey",
+    label: "Our First Journey",
     title: "Luxury Golden Triangle",
     duration: "7 Days / 6 Nights",
     route: "Delhi → Agra → Jaipur",
     regions: ["Delhi", "Agra", "Jaipur"],
     summary:
-      "Three cities, one unbroken story of empires, craft and everyday Indian life — travelled slowly, stayed comfortably, hosted personally.",
+      "India's most iconic route, travelled the way it deserves — private transport, handpicked hotels, a dedicated host, and time to actually feel each city.",
     intro: [
-      "The Golden Triangle is India's most travelled route, and the easiest one to travel badly. This journey slows it down: sunrise before the crowds, afternoons in courtyards rather than coaches, evenings spent with musicians, cooks and craftspeople.",
-      "Seven days between Delhi, Agra and Jaipur, in 4 and 5-star hotels, with private air-conditioned transport and a dedicated host traveling with you throughout.",
+      "Most Golden Triangle tours rush you through three cities in a minibus with thirty strangers. This one doesn't. We slow the pace, cut the crowds, and replace the coach stops with the kind of access that takes years to arrange — a textile workshop in Old Delhi, the Taj Mahal before the gates open to the public, a private dinner in a Jaipur haveli.",
+      "Seven days, three cities, one dedicated host who travels with you from your first transfer to your last. Every hotel is chosen for character and location, every experience is confirmed before you arrive. This is where India Tour On Wheels begins — and it is the journey we are most proud of.",
     ],
     image: hero,
     facts: [
       { label: "Duration", value: "7 Days / 6 Nights" },
       { label: "Route", value: "Delhi → Agra → Jaipur" },
-      { label: "Hotels", value: "4 / 5-Star" },
-      { label: "Transport", value: "Private luxury vehicle" },
-      { label: "Host", value: "Dedicated tour host" },
-      { label: "Style", value: "Cultural & heritage" },
+      { label: "Hotels", value: "4-Star & 5-Star" },
+      { label: "Transport", value: "Private A/C vehicle" },
+      { label: "Group Size", value: "Private — just your party" },
+      { label: "Host", value: "Dedicated throughout" },
+      { label: "Starting From", value: "$4,999 Per Person (Early-Bird)" },
     ],
     cities: [
       {
         name: "Delhi",
-        note: "History · Culture · Old Delhi",
+        note: "Old City · Mughal History · Modern India",
         image: delhi,
-        text: "Begin where India's capitals have risen and fallen for a thousand years — from Mughal Old Delhi to the wide colonial avenues of New Delhi.",
+        text: "Two cities in one — the narrow spice lanes and Mughal mosques of Old Delhi, and the wide ceremonial avenues of New Delhi built by the British. Most visitors see one. We show you both, at the right pace.",
       },
       {
         name: "Agra",
-        note: "Taj Mahal · Heritage · Mughal Architecture",
+        note: "Taj Mahal · Agra Fort · Mughal Empire",
         image: agra,
-        text: "Marble, inlay and imperial ambition. Agra is seen at first light, when the Taj Mahal belongs almost entirely to you.",
+        text: "The Taj Mahal is one of the few places on earth that exceeds its reputation. We get you there at first light, before the crowds, when the marble shifts from grey to rose gold and the gardens are almost silent.",
       },
       {
         name: "Jaipur",
-        note: "Royalty · Forts · Rajasthani Culture",
+        note: "Amber Fort · Royal Palaces · Rajasthani Craft",
         image: jaipur,
-        text: "The pink city of Rajasthan: hill forts, mirrored palaces, block printers, puppeteers and folk musicians still working today.",
+        text: "The Pink City of Rajasthan — hill forts, mirrored palace rooms, block printers, gem cutters and folk musicians who have been performing the same songs for generations. Jaipur rewards those who stay long enough to find it.",
       },
     ],
     itinerary: [
       {
         day: 1,
         place: "Delhi",
-        title: "Arrival & Welcome",
+        title: "Arrival in Delhi",
         description:
-          "Met on arrival in Delhi and transferred to your hotel. The rest of the day is left open to rest, followed by a relaxed welcome dinner with your host and an outline of the days ahead.",
-        image: delhi,
+          "Your host meets you at the airport and transfers you to your hotel in central Delhi. The afternoon is yours — rest, explore the neighbourhood, or take a slow walk through Lodi Garden. In the evening, a welcome dinner with your host to walk through the days ahead over good food.",
+        image: dayDelhi,
       },
       {
         day: 2,
         place: "Delhi",
-        title: "Old & New Delhi",
+        title: "Old Delhi & New Delhi",
         description:
-          "A full day across both Delhis — Mughal monuments and mosques, the lanes and spice markets of the old city explored by cycle rickshaw, and the ceremonial avenues of New Delhi in the late afternoon light.",
-        image: rickshaw,
+          "A full day across both Delhis. Morning in the old city — Jama Masjid, the spice market of Khari Baoli, and the lanes of Chandni Chowk by cycle rickshaw at the pace the city was built for. Afternoon in New Delhi: Humayun's Tomb, the India Gate boulevard, and Qutub Minar in the late light.",
+        image: dayOldDelhi,
       },
       {
         day: 3,
         place: "Delhi → Agra",
-        title: "The Road To Agra",
+        title: "Drive to Agra",
         description:
-          "Drive to Agra by expressway. Afternoon at Agra Fort, the red sandstone seat of Mughal power, with its distant view of the Taj across the Yamuna. Evening at leisure.",
-        image: agra,
+          "An early start on the Yamuna Expressway to Agra. Afternoon at Agra Fort — the red sandstone seat of Mughal power, with its marble pavilions and a distant view of the Taj across the river. Evening at leisure in Agra; dinner at a rooftop restaurant with the Taj lit up after dark.",
+        image: dayAgraFort,
       },
       {
         day: 4,
         place: "Agra → Jaipur",
-        title: "Taj Mahal At Sunrise",
+        title: "Taj Mahal at Sunrise",
         description:
-          "An early start for the Taj Mahal as it opens, when the marble shifts from grey to rose. Later, the drive to Jaipur with a stop at the abandoned city of Fatehpur Sikri.",
-        image: taj,
+          "Up before dawn for the Taj Mahal as the gates open. An hour inside before the tour groups arrive — the marble, the inlay work, the scale of it. Late morning, the drive to Jaipur via Fatehpur Sikri, the abandoned Mughal capital that most visitors skip entirely.",
+        image: dayTajMorning,
       },
       {
         day: 5,
         place: "Jaipur",
-        title: "Forts & The Pink City",
+        title: "Forts, Palaces & the Pink City",
         description:
-          "Amber Fort in the morning, then the City Palace, the observatory of Jantar Mantar and Hawa Mahal. Late afternoon in the bazaars with time for craft workshops.",
-        image: jaipur,
+          "Amber Fort at sunrise from the hillside, then the City Palace, Jantar Mantar observatory and Hawa Mahal. Afternoon free for the bazaars — textiles, blue pottery, gems — with your host on hand to navigate and translate.",
+        image: dayJaipurAmber,
       },
       {
         day: 6,
         place: "Jaipur",
-        title: "Culture & Celebration",
+        title: "Craft, Culture & an Evening to Remember",
         description:
-          "A slower day in Jaipur — turban tying, local crafts and a Rajasthani cultural evening with folk music, dance and dinner around a bonfire.",
-        image: bonfire,
+          "A slower day. Morning with a block printer or a turban-tying demonstration in a family workshop. Afternoon at leisure. Evening: a Rajasthani cultural dinner — folk music, Kalbelia dance and a bonfire under the open sky, in a setting that has been doing this for centuries.",
+        image: dayJaipurCulture,
       },
       {
         day: 7,
         place: "Jaipur → Departure",
         title: "Farewell",
         description:
-          "A final Indian breakfast before your transfer to the airport or onward journey, with the option to extend into Rajasthan or beyond.",
-        image: royal,
+          "A final Indian breakfast before your transfer to Jaipur airport or onward by train to Delhi. Your host stays with you until you are on your way. Extensions into Rajasthan — Jodhpur, Udaipur, Jaisalmer — can be arranged on request.",
+        image: dayFarewell,
       },
     ],
     highlights: [
       {
-        title: "Taj Mahal At Sunrise",
+        title: "Taj Mahal at First Light",
         place: "Agra",
         description:
-          "Entering as the gates open, before the heat and the crowds, when the marble changes color minute by minute.",
+          "We enter as the gates open, before the heat and the tour groups arrive. The marble changes color every few minutes — grey, then pink, then white gold. There is nothing else quite like it.",
         image: taj,
       },
       {
-        title: "Bollywood Music Night",
+        title: "Old Delhi by Cycle Rickshaw",
         place: "Delhi",
         description:
-          "An evening of live Indian music — film classics and folk — performed close enough to feel the tabla.",
-        image: musicNight,
-      },
-      {
-        title: "Old Delhi Rickshaw Ride",
-        place: "Delhi",
-        description:
-          "Through Chandni Chowk by cycle rickshaw, at the speed and eye level of the old city itself.",
+          "Through Chandni Chowk at street level and human speed — past spice warehouses, silver shops, street food stalls and mosques that have been here since the 17th century.",
         image: rickshaw,
       },
       {
-        title: "Rajasthani Turban Experience",
+        title: "Live Indian Music Evening",
+        place: "Delhi",
+        description:
+          "An intimate evening of live Indian classical and folk music — tabla, sitar, vocals — performed close enough to feel the resonance. The kind of evening you cannot book through a hotel concierge.",
+        image: musicNight,
+      },
+      {
+        title: "Rajasthani Turban Ceremony",
         place: "Jaipur",
         description:
-          "Thirty feet of cotton, tied the traditional way, with the meaning behind every color and fold.",
+          "Thirty feet of cotton, tied the traditional way by a master who has been doing it his whole life. Every color carries meaning. Every fold has a name. You leave wearing yours.",
         image: turban,
       },
       {
-        title: "Bonfire Night",
+        title: "Bonfire Dinner Under the Stars",
         place: "Jaipur",
         description:
-          "Dinner outdoors around a fire under the Rajasthan sky, with folk musicians and unhurried conversation.",
+          "Dinner outdoors in a heritage courtyard, around a fire, with folk musicians and dancers performing the songs of Rajasthan. The kind of evening that becomes the story you tell when you get home.",
         image: bonfire,
       },
       {
         title: "Royal Cultural Evening",
         place: "Jaipur",
         description:
-          "Music, dance and Rajasthani hospitality in a heritage setting built for exactly this.",
+          "A private cultural performance in a heritage setting — Kalbelia dance, puppet theatre and Rajasthani hospitality in a space built for exactly this kind of evening.",
         image: royal,
       },
     ],
     inclusions: [
-      "6 nights in 4 / 5-star hotels",
-      "Daily breakfast",
-      "Private air-conditioned vehicle throughout",
-      "Dedicated tour host for the full journey",
-      "All airport and hotel transfers",
-      "Monument and heritage site visits as per itinerary",
-      "Cultural experiences listed in the itinerary",
-      "All applicable taxes and driver charges",
+      "6 nights in handpicked 4-star and 5-star hotels",
+      "Daily breakfast at your hotel",
+      "Private air-conditioned vehicle for all transfers and sightseeing",
+      "One dedicated host traveling with you for the full 7 days",
+      "All airport, hotel and station transfers",
+      "All monument and heritage site entry fees per itinerary",
+      "All cultural experiences listed in the itinerary",
+      "All applicable taxes, tolls and driver charges",
     ],
     notes: [
-      "Flights, visas and travel insurance are not included.",
-      "Hotels are confirmed at the time of booking and shared before departure.",
-      "The itinerary can be shortened, extended or re-paced on request.",
+      "Early-bird pricing of $4,999 per person (regular price $5,499) requires a $999 deposit to lock in.",
+      "International flights, U.S. travel insurance and Indian visa fees are not included.",
+      "Hotels are confirmed at booking and full details shared before departure.",
+      "The itinerary can be extended, shortened or re-paced — just ask.",
+      "We recommend arriving a day early to adjust to the time difference.",
     ],
   },
   {
-    slug: "rajasthan-in-preparation",
+    slug: "rajasthan-extended",
     status: "coming-soon",
-    label: "In Preparation",
+    label: "Coming Soon",
     title: "Rajasthan, Extended",
-    duration: "Dates to be announced",
-    route: "Route being finalised",
+    duration: "Being organised",
+    route: "Jaipur → Jodhpur → Udaipur → Jaisalmer",
     regions: ["Rajasthan"],
     summary:
-      "A longer Rajasthan journey is being planned. Details will be published once hotels and hosts are confirmed.",
+      "A deeper journey through Rajasthan — the Blue City, the Lake City and the desert fort of Jaisalmer. Being organised now; details published once every stay is confirmed.",
     intro: [],
     facts: [],
     cities: [],
@@ -231,15 +234,15 @@ export const journeys: Journey[] = [
     notes: [],
   },
   {
-    slug: "south-india-in-preparation",
+    slug: "south-india-temples-backwaters",
     status: "coming-soon",
-    label: "In Preparation",
-    title: "South India, Slowly",
-    duration: "Dates to be announced",
-    route: "Route being finalised",
-    regions: ["South India"],
+    label: "Coming Soon",
+    title: "South India: Temples & Backwaters",
+    duration: "Being organised",
+    route: "Chennai → Madurai → Kochi → Alleppey",
+    regions: ["Tamil Nadu", "Kerala"],
     summary:
-      "A southern journey through temple towns, backwaters and coastal kitchens is in development.",
+      "Temple towns, spice markets, a houseboat on the Kerala backwaters and coastal food that bears no resemblance to what you have eaten before. Being organised now.",
     intro: [],
     facts: [],
     cities: [],
@@ -251,5 +254,4 @@ export const journeys: Journey[] = [
 ];
 
 export const featuredJourney = journeys[0]!;
-
 export const getJourney = (slug: string) => journeys.find((j) => j.slug === slug);

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Eyebrow, Shell } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
-import { galleryCategories, galleryImages } from "@/data/gallery";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { galleryCategories, galleryImages, type GalleryImage } from "@/data/gallery";
 import { cn } from "@/lib/utils";
 
 /** Asymmetric magazine grid: spans vary by index so rows never look uniform. */
@@ -19,6 +20,7 @@ const spans = [
 
 export function GallerySection({ filterable = true }: { filterable?: boolean }) {
   const [active, setActive] = useState<string>("All");
+  const [selected, setSelected] = useState<GalleryImage | null>(null);
   const images = galleryImages.filter((image) => active === "All" || image.category === active);
 
   return (
@@ -41,8 +43,10 @@ export function GallerySection({ filterable = true }: { filterable?: boolean }) 
                 type="button"
                 onClick={() => setActive(category)}
                 className={cn(
-                  "text-[0.65rem] uppercase tracking-[0.24em] transition-colors duration-500",
-                  active === category ? "text-terracotta" : "text-ink-soft hover:text-ink",
+                  "border-b-2 pb-1 text-[0.7rem] uppercase tracking-[0.24em] transition-colors duration-500",
+                  active === category
+                    ? "border-terracotta text-terracotta"
+                    : "border-transparent text-ink-soft hover:border-line hover:text-ink",
                 )}
               >
                 {category}
@@ -59,9 +63,12 @@ export function GallerySection({ filterable = true }: { filterable?: boolean }) 
               variant="clip"
               className={cn("img-zoom", spans[index % spans.length])}
             >
-              <div
+              <button
+                type="button"
+                onClick={() => setSelected(image)}
+                aria-label={`View larger: ${image.alt}`}
                 className={cn(
-                  "overflow-hidden bg-sand-deep",
+                  "block w-full cursor-zoom-in overflow-hidden bg-sand-deep",
                   image.orientation === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]",
                 )}
               >
@@ -71,14 +78,27 @@ export function GallerySection({ filterable = true }: { filterable?: boolean }) 
                   loading="lazy"
                   className="h-full w-full object-cover"
                 />
-              </div>
-              <p className="mt-4 text-[0.6rem] uppercase tracking-[0.24em] text-ink-soft">
+              </button>
+              <p className="mt-4 text-[0.7rem] uppercase tracking-[0.24em] text-ink-soft">
                 {image.category}
               </p>
             </Reveal>
           ))}
         </div>
       </Shell>
+
+      <Dialog open={selected !== null} onOpenChange={(open) => !open && setSelected(null)}>
+        <DialogContent className="max-w-4xl w-[92vw] border-none bg-transparent p-0 shadow-none sm:rounded-none">
+          <DialogTitle className="sr-only">{selected?.alt}</DialogTitle>
+          {selected && (
+            <img
+              src={selected.src}
+              alt={selected.alt}
+              className="max-h-[85vh] w-full object-contain"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

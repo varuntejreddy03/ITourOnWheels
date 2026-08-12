@@ -8,7 +8,38 @@ export function FeaturedJourney() {
   return (
     <section className="bg-sand py-28 md:py-40">
       <Shell>
-        <div className="grid gap-16 lg:grid-cols-[1fr_1.15fr] lg:gap-24">
+        <div className="grid gap-16 lg:grid-cols-[1.15fr_1fr] lg:gap-24">
+
+          {/* Images — left */}
+          <div className="space-y-8">
+            <ParallaxImage
+              src={journey.image!}
+              alt="Hawa Mahal in Jaipur in late afternoon light"
+              className="aspect-[4/5] w-full"
+              width={1600}
+              height={1104}
+              eager
+            />
+            <div className="grid grid-cols-2 gap-8">
+              {journey.cities.slice(0, 2).map((city) => (
+                <figure key={city.name} className="img-zoom">
+                  <div className="aspect-[3/4] overflow-hidden bg-sand-deep">
+                    <img
+                      src={city.image}
+                      alt={`${city.name} — ${city.note}`}
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-4 text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">
+                    {city.name}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+
+          {/* Text — right, sticky */}
           <div className="lg:sticky lg:top-32 lg:self-start">
             <Reveal>
               <Eyebrow>{journey.label}</Eyebrow>
@@ -29,19 +60,19 @@ export function FeaturedJourney() {
               <p className="body-lead mt-8 max-w-lg">{journey.summary}</p>
             </Reveal>
             <Reveal delay={320} className="mt-12">
-              <Action to="/journeys/$slug" params={{ slug: journey.slug }}>
+              <Action to={`/journeys/${journey.slug}`}>
                 Explore This Journey
               </Action>
               <p className="mt-6 max-w-md text-sm leading-relaxed text-ink-soft">
                 Our first published journey. More routes across Rajasthan, South India and the
-                Himalaya are being prepared — this collection grows every season.
+                Himalaya are being organised — this collection grows as each one is confirmed.
               </p>
             </Reveal>
             <Reveal delay={400}>
               <dl className="mt-16 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-line pt-10">
                 {journey.facts.slice(0, 4).map((fact) => (
                   <div key={fact.label}>
-                    <dt className="text-[0.6rem] uppercase tracking-[0.26em] text-ink-soft">
+                    <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">
                       {fact.label}
                     </dt>
                     <dd className="mt-2 font-[family-name:var(--font-display)] text-xl">
@@ -53,34 +84,6 @@ export function FeaturedJourney() {
             </Reveal>
           </div>
 
-          <div className="space-y-8">
-            <Reveal variant="clip">
-              <ParallaxImage
-                src={journey.image!}
-                alt="Hawa Mahal in Jaipur in late afternoon light"
-                className="aspect-[4/5] w-full"
-                width={1600}
-                height={1104}
-              />
-            </Reveal>
-            <Reveal delay={120} className="grid grid-cols-2 gap-8">
-              {journey.cities.slice(0, 2).map((city) => (
-                <figure key={city.name} className="img-zoom">
-                  <div className="aspect-[3/4] overflow-hidden bg-sand-deep">
-                    <img
-                      src={city.image}
-                      alt={`${city.name} — ${city.note}`}
-                      loading="lazy"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <figcaption className="mt-4 text-[0.62rem] uppercase tracking-[0.26em] text-ink-soft">
-                    {city.name}
-                  </figcaption>
-                </figure>
-              ))}
-            </Reveal>
-          </div>
         </div>
       </Shell>
     </section>
