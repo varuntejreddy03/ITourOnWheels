@@ -1,8 +1,8 @@
-import heritage from "@/assets/exp-heritage.jpg";
-import culinary from "@/assets/exp-culinary.jpg";
-import culture from "@/assets/exp-culture.jpg";
-import royal from "@/assets/exp-royal.jpg";
-import nature from "@/assets/exp-nature.jpg";
+import heritage from "@/assets/exp-heritage.webp";
+import culinary from "@/assets/exp-culinary.webp";
+import culture from "@/assets/exp-culture.webp";
+import royal from "@/assets/exp-royal.webp";
+import nature from "@/assets/exp-nature.webp";
 
 export type ExperienceCategory = {
   slug: string;

@@ -117,6 +117,7 @@ export function ParallaxImage({
         width={width}
         height={height}
         loading={eager ? "eager" : "lazy"}
+        decoding="async"
         style={{ transform: `translate3d(0, ${offset}px, 0) scale(1.12)` }}
         className={cn("h-full w-full object-cover", imgClassName)}
       />

@@ -1,4 +1,4 @@
-import hero from "@/assets/hero-taj-sunrise.jpg";
+import hero from "@/assets/hero-taj-sunrise.webp";
 import { Action, Eyebrow } from "@/components/site/Primitives";
 import { Reveal, useParallax } from "@/components/site/Reveal";
 
@@ -13,6 +13,9 @@ export function Hero() {
           alt="The Taj Mahal at sunrise seen across misty gardens"
           width={1920}
           height={1088}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           style={{ transform: `translate3d(0, ${offset}px, 0) scale(1.1)` }}
           className="h-full w-full object-cover"
         />

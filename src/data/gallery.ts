@@ -1,12 +1,12 @@
-import heritage from "@/assets/gal-heritage.jpg";
-import culture from "@/assets/gal-culture.jpg";
-import people from "@/assets/gal-people.jpg";
-import food from "@/assets/gal-food.jpg";
-import architecture from "@/assets/gal-architecture.jpg";
-import landscape from "@/assets/gal-landscape.jpg";
-import taj from "@/assets/exp-taj-sunrise.jpg";
-import rickshaw from "@/assets/exp-rickshaw.jpg";
-import turban from "@/assets/exp-turban.jpg";
+import heritage from "@/assets/gal-heritage.webp";
+import culture from "@/assets/gal-culture.webp";
+import people from "@/assets/gal-people.webp";
+import food from "@/assets/gal-food.webp";
+import architecture from "@/assets/gal-architecture.webp";
+import landscape from "@/assets/gal-landscape.webp";
+import taj from "@/assets/exp-taj-sunrise.webp";
+import rickshaw from "@/assets/exp-rickshaw.webp";
+import turban from "@/assets/exp-turban.webp";
 
 export const galleryCategories = [
   "Heritage",

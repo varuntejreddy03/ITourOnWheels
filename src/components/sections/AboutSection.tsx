@@ -1,4 +1,4 @@
-import about from "@/assets/about-haveli.jpg";
+import about from "@/assets/about-haveli.webp";
 import { Eyebrow, ParallaxImage, Shell, TextLink } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 
