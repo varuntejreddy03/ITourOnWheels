@@ -21,7 +21,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-[92rem] px-6 pb-24 pt-40 md:px-12 md:pb-32">
         <Reveal>
-          <Eyebrow className="text-teal">Cultural Journeys Across India</Eyebrow>
+          <Eyebrow className="text-teal">Cultural Journeys Across India · For U.S. Travelers</Eyebrow>
         </Reveal>
 
         <Reveal delay={120}>
@@ -35,8 +35,8 @@ export function Hero() {
         <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-end">
           <Reveal delay={240}>
             <p className="max-w-xl text-lg leading-relaxed text-sand/75">
-              Discover India's timeless cities, living traditions and unforgettable journeys through
-              experiences designed for curious travelers.
+              Private, hosted journeys through India, designed for American travelers. We begin with
+              the 7 day Luxury Golden Triangle — with more routes added through the year.
             </p>
           </Reveal>
 
