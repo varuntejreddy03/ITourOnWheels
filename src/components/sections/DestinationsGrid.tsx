@@ -26,7 +26,7 @@ export function DestinationsGrid() {
           <h2 className="display-lg mt-8 max-w-3xl">
             Four Cities,
             <br />
-            <span className="italic">One Extraordinary Country</span>
+            <span className="font-[family-name:var(--font-display-alt)] font-light">One Extraordinary Country</span>
           </h2>
         </Reveal>
         <Reveal delay={160}>

@@ -24,8 +24,8 @@ const reasons = [
   },
   {
     number: "05",
-    title: "Built for U.S. Travelers",
-    body: "We understand the time zones, the visa process, the jet lag and the questions American travelers actually ask. We have planned for all of it.",
+    title: "Built for International Travelers",
+    body: "We understand long-haul travel — the time zones, the visa process, the jet lag and the questions first-time India visitors actually ask. We have planned for all of it.",
   },
   {
     number: "06",
@@ -45,7 +45,7 @@ export function StoriesSection() {
           <h2 className="display-lg mt-8 max-w-3xl">
             Six Reasons to
             <br />
-            <span className="italic">Travel Differently</span>
+            <span className="font-[family-name:var(--font-display-alt)] font-light">Travel Differently</span>
           </h2>
         </Reveal>
 

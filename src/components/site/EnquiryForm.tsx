@@ -36,25 +36,33 @@ export function EnquiryForm({
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
-    // ponytail: no backend yet — mailto is the zero-dependency stopgap. Swap for a real
-    // email/CRM endpoint (e.g. Resend, Formspree) once one is chosen.
-    const subject = `Journey enquiry from ${values.name || "the website"}`;
-    const body = [
-      `Name: ${values.name}`,
-      `Email: ${values.email}`,
-      `Phone: ${values.phone}`,
-      `Destination: ${values.destination || "Not specified"}`,
-      `Travel dates: ${values.dates || "Flexible"}`,
-      `Number of travelers: ${values.travelers || "Not specified"}`,
-      `Interested journey: ${values.journey || "Not specified"}`,
-      "",
-      values.message,
-    ].join("\n");
-    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    toast.success("Opening your email to send this enquiry", {
-      description: `If nothing opens, email us directly at ${site.email}.`,
+
+    // Format a clean WhatsApp message
+    const lines = [
+      `🙏 *New Journey Enquiry — I Tour On Wheels*`,
+      ``,
+      `👤 *Name:* ${values.name}`,
+      `📧 *Email:* ${values.email}`,
+      `📞 *Phone:* ${values.phone || "Not provided"}`,
+      ``,
+      `🗺️ *Destination:* ${values.destination || "Not specified"}`,
+      `✈️ *Journey:* ${values.journey || "Not specified"}`,
+      `📅 *Travel Dates:* ${values.dates || "Flexible"}`,
+      `👥 *Travelers:* ${values.travelers || "Not specified"}`,
+      ``,
+      values.message ? `💬 *Message:*\n${values.message}` : "",
+    ].filter(Boolean).join("\n");
+
+    // WhatsApp number — strip non-digits from site phone
+    const waNumber = site.phone.replace(/\D/g, "");
+    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(lines)}`;
+
+    window.open(waUrl, "_blank", "noopener,noreferrer");
+
+    toast.success("Opening WhatsApp with your enquiry", {
+      description: `You can also reach us at ${site.phone}`,
     });
-    setValues(empty);
+    setValues({ ...empty, destination: defaultDestination, journey: defaultJourney });
   };
 
   return (
@@ -201,8 +209,8 @@ export function EnquiryForm({
       </div>
 
       <div className="sm:col-span-2 flex flex-wrap items-center gap-5">
-        <Action type="submit">Send Enquiry</Action>
-        <p className="text-sm text-ink-soft">We reply personally within one working day.</p>
+        <Action type="submit">Send via WhatsApp</Action>
+        <p className="text-sm text-ink-soft">Opens WhatsApp with your details pre-filled. We reply within one working day.</p>
       </div>
     </form>
   );

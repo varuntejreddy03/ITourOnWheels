@@ -123,7 +123,7 @@ export function DestinationDetailPage() {
             <h2 className="display-lg mt-8 max-w-3xl">
               What Makes {dest.name}
               <br />
-              <span className="italic">Unforgettable</span>
+              <span className="font-[family-name:var(--font-display-alt)] font-light">Unforgettable</span>
             </h2>
           </Reveal>
           <div className="mt-20 grid gap-px border-t border-line bg-line sm:grid-cols-2">
@@ -150,7 +150,7 @@ export function DestinationDetailPage() {
             <h2 className="display-lg mt-8 max-w-3xl">
               The Essential
               <br />
-              <span className="italic">{dest.name}</span>
+              <span className="font-[family-name:var(--font-display-alt)] font-light">{dest.name}</span>
             </h2>
           </Reveal>
           <ol className="mt-16 border-t border-line">

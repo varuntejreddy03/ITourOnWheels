@@ -31,7 +31,9 @@ export function GallerySection({ filterable = true }: { filterable?: boolean }) 
         </Reveal>
         <Reveal delay={100}>
           <h2 className="display-lg mt-8 max-w-3xl">
-            India, <span className="italic">In Frames</span>
+            India
+            <br />
+            <span className="font-[family-name:var(--font-display-alt)] font-light">In Frames</span>
           </h2>
         </Reveal>
 
@@ -60,7 +62,6 @@ export function GallerySection({ filterable = true }: { filterable?: boolean }) 
             <Reveal
               key={image.src + index}
               delay={(index % 3) * 90}
-              variant="clip"
               className={cn("img-zoom", spans[index % spans.length])}
             >
               <button

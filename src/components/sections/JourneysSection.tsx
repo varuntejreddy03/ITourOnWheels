@@ -1,6 +1,7 @@
 import { Action, Eyebrow, Shell, TextLink } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { journeys } from "@/data/journeys";
+import { CurrencyPrice } from "@/components/site/CurrencyPrice";
 
 export function JourneysSection({
   eyebrow = "Featured Journeys",
@@ -49,12 +50,14 @@ export function JourneysSection({
                       {journey.summary}
                     </p>
                     <ul className="mt-8 grid gap-2 text-sm text-ink-soft sm:grid-cols-2">
-                      {journey.facts.slice(2).map((fact) => (
+                      {journey.facts.slice(2, 6).map((fact) => (
                         <li key={fact.label} className="border-t border-line pt-2">
-                          {fact.value}
+                          <span className="text-[0.58rem] uppercase tracking-[0.2em] text-ink/40">{fact.label}</span>
+                          <br />{fact.value}
                         </li>
                       ))}
                     </ul>
+                    <CurrencyPrice usd={3999} className="mt-8" />
                     <div className="mt-10">
                       <Action to={`/journeys/${journey.slug}`} variant="outline">
                         View Journey

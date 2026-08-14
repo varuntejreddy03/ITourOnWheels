@@ -36,12 +36,15 @@ export function Reveal({
           }
         });
       },
-      { threshold: 0.05, rootMargin: "0px 0px -4% 0px" },
+      { threshold: 0.01, rootMargin: "0px 0px 0px 0px" },
     );
-    observer.observe(node);
     // Fire immediately if already in viewport
     const rect = node.getBoundingClientRect();
-    if (rect.top < window.innerHeight) setShown(true);
+    if (rect.top < window.innerHeight) {
+      setShown(true);
+      return;
+    }
+    observer.observe(node);
     return () => observer.disconnect();
   }, []);
 

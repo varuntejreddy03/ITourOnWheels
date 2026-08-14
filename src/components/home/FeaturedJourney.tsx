@@ -1,6 +1,14 @@
-import { Action, Eyebrow, ParallaxImage, Shell } from "@/components/site/Primitives";
+import featuredMain from "@/assets/ChatGPT Image Aug 13, 2026, 07_57_18 PM.png";
+import featuredCity1 from "@/assets/ChatGPT Image Aug 13, 2026, 08_04_49 PM.png";
+import featuredCity2 from "@/assets/featured-city-2.webp";
+import { Action, Eyebrow, Shell } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { featuredJourney } from "@/data/journeys";
+
+const cityImages = [
+  { src: featuredCity1, label: "Delhi", alt: "Delhi — Qutub Minar and ancient ruins" },
+  { src: featuredCity2, label: "Agra", alt: "Taj Mahal reflected in the long pool at sunrise" },
+];
 
 export function FeaturedJourney() {
   const journey = featuredJourney;
@@ -12,27 +20,27 @@ export function FeaturedJourney() {
 
           {/* Images — left */}
           <div className="space-y-8">
-            <ParallaxImage
-              src={journey.image!}
-              alt="Hawa Mahal in Jaipur in late afternoon light"
-              className="aspect-[4/5] w-full"
-              width={1600}
-              height={1104}
-              eager
-            />
+            <div className="w-full overflow-hidden rounded-sm bg-sand-deep">
+              <img
+                src={featuredMain}
+                alt="Hawa Mahal — the Palace of Winds, Jaipur at dusk"
+                loading="eager"
+                className="w-full object-contain"
+              />
+            </div>
             <div className="grid grid-cols-2 gap-8">
-              {journey.cities.slice(0, 2).map((city) => (
-                <figure key={city.name} className="img-zoom">
+              {cityImages.map((city) => (
+                <figure key={city.label} className="img-zoom">
                   <div className="aspect-[3/4] overflow-hidden bg-sand-deep">
                     <img
-                      src={city.image}
-                      alt={`${city.name} — ${city.note}`}
+                      src={city.src}
+                      alt={city.alt}
                       loading="lazy"
                       className="h-full w-full object-cover"
                     />
                   </div>
                   <figcaption className="mt-4 text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">
-                    {city.name}
+                    {city.label}
                   </figcaption>
                 </figure>
               ))}
@@ -48,7 +56,7 @@ export function FeaturedJourney() {
               <h2 className="display-lg mt-8">
                 {journey.duration}
                 <br />
-                <span className="italic">{journey.title}</span>
+                <span className="font-[family-name:var(--font-display-alt)] font-light">{journey.title}</span>
               </h2>
             </Reveal>
             <Reveal delay={180}>
@@ -64,8 +72,8 @@ export function FeaturedJourney() {
                 Explore This Journey
               </Action>
               <p className="mt-6 max-w-md text-sm leading-relaxed text-ink-soft">
-                Our first published journey. More routes across Rajasthan, South India and the
-                Himalaya are being organised — this collection grows as each one is confirmed.
+                Our first published journey. More routes across Rajasthan, the Himalaya and North
+                India are being organised — this collection grows as each one is confirmed.
               </p>
             </Reveal>
             <Reveal delay={400}>

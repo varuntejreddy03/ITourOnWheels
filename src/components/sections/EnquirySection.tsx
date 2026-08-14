@@ -22,7 +22,7 @@ export function EnquirySection({
               <h2 className="display-lg mt-8">
                 Let's Plan
                 <br />
-                <span className="italic">Your Journey</span>
+                <span className="font-[family-name:var(--font-display-alt)] font-light">Your Journey</span>
               </h2>
             </Reveal>
             <Reveal delay={180}>

@@ -19,13 +19,14 @@ export function PageHeader({
           <Eyebrow>{eyebrow}</Eyebrow>
         </Reveal>
         <Reveal delay={100}>
-          <h1 className="display-lg mt-8 max-w-4xl">
-            {title}
+          <h1 className="mt-8 max-w-4xl" style={{ lineHeight: 1 }}>
+            <span className="block font-[family-name:var(--font-display-alt)] text-[clamp(2.25rem,5.5vw,4.5rem)] font-medium tracking-[-0.015em]">
+              {title}
+            </span>
             {italic ? (
-              <>
-                <br />
-                <span className="italic">{italic}</span>
-              </>
+              <span className="block font-[family-name:var(--font-display-alt)] text-[clamp(2.25rem,5.5vw,4.5rem)] font-light tracking-[-0.015em] text-ink/75">
+                {italic}
+              </span>
             ) : null}
           </h1>
         </Reveal>

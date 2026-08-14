@@ -1,8 +1,9 @@
-import { Routes, Route, Navigate, useParams, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { Routes, Route, Navigate, useParams, useNavigate, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { CurrencyPrice } from "@/components/site/CurrencyPrice";
 
 import { Hero } from "@/components/home/Hero";
 import { FeaturedJourney } from "@/components/home/FeaturedJourney";
@@ -131,7 +132,7 @@ function JourneyDetailPage() {
           <Reveal><Eyebrow className="text-teal">{journey.label}</Eyebrow></Reveal>
           <Reveal delay={120}>
             <h1 className="display-xl mt-8 max-w-4xl text-sand">
-              {journey.duration}<br /><span className="italic">{journey.title}</span>
+              {journey.duration}<br /><span className="font-[family-name:var(--font-display-alt)] font-light">{journey.title}</span>
             </h1>
           </Reveal>
           <Reveal delay={240}><p className="mt-10 text-[0.7rem] uppercase tracking-[0.3em] text-sand/70">{journey.route}</p></Reveal>
@@ -152,23 +153,16 @@ function JourneyDetailPage() {
             </div>
             <Reveal delay={200}>
               <dl className="grid grid-cols-2 gap-x-8 gap-y-10 border-t border-line pt-10">
-                {journey.facts.map((fact) => (
+                {journey.facts.filter(f => f.label !== "Early Bird").map((fact) => (
                   <div key={fact.label}>
                     <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">{fact.label}</dt>
-                    {fact.label === "Starting From" && fact.value === "Contact us for pricing" ? (
-                      <dd className="mt-2">
-                        <a
-                          href="#plan"
-                          className="inline-flex min-h-11 items-center gap-2 border border-terracotta/50 px-3 text-[0.7rem] uppercase tracking-[0.2em] text-terracotta transition-colors duration-500 hover:bg-terracotta hover:text-sand"
-                        >
-                          Ask For Pricing
-                        </a>
-                      </dd>
-                    ) : (
-                      <dd className="mt-2 font-[family-name:var(--font-display)] text-xl leading-snug">{fact.value}</dd>
-                    )}
+                    <dd className="mt-2 font-[family-name:var(--font-display)] text-xl leading-snug">{fact.value}</dd>
                   </div>
                 ))}
+                <div className="col-span-2 border-t border-line pt-8">
+                  <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft mb-4">Early Bird Price</dt>
+                  <CurrencyPrice usd={3999} />
+                </div>
               </dl>
             </Reveal>
           </div>
@@ -178,7 +172,7 @@ function JourneyDetailPage() {
       <section className="border-y border-line bg-sand-deep/40 py-28 md:py-40">
         <Shell>
           <Reveal><Eyebrow>The Cities</Eyebrow></Reveal>
-          <Reveal delay={100}><h2 className="display-lg mt-8 max-w-3xl">Three Cities,<br /><span className="italic">One Story</span></h2></Reveal>
+          <Reveal delay={100}><h2 className="display-lg mt-8 max-w-3xl">Three Cities,<br /><span className="font-[family-name:var(--font-display-alt)] font-light">One Story</span></h2></Reveal>
           <div className="mt-20 grid gap-x-8 gap-y-16 md:grid-cols-3">
             {journey.cities.map((city, index) => (
               <Reveal key={city.name} delay={index * 100} className={index === 1 ? "md:mt-16" : undefined}>
@@ -199,7 +193,7 @@ function JourneyDetailPage() {
       <section className="bg-sand py-28 md:py-40">
         <Shell>
           <Reveal><Eyebrow>Day By Day</Eyebrow></Reveal>
-          <Reveal delay={100}><h2 className="display-lg mt-8 max-w-3xl">The <span className="italic">Itinerary</span></h2></Reveal>
+          <Reveal delay={100}><h2 className="display-lg mt-8 max-w-3xl">The <span className="font-[family-name:var(--font-display-alt)] font-light">Itinerary</span></h2></Reveal>
           <Reveal delay={160} className="mt-10 flex flex-wrap gap-2">
             {journey.itinerary.map((day) => (
               <a
@@ -240,7 +234,7 @@ function JourneyDetailPage() {
           <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-24">
             <div>
               <Reveal><Eyebrow>Inclusions</Eyebrow></Reveal>
-              <Reveal delay={100}><h2 className="display-lg mt-8">What Is<br /><span className="italic">Included</span></h2></Reveal>
+              <Reveal delay={100}><h2 className="display-lg mt-8">What Is<br /><span className="font-[family-name:var(--font-display-alt)] font-light">Included</span></h2></Reveal>
               <Reveal delay={200}>
                 <ul className="mt-12 space-y-4 text-sm text-ink-soft">
                   {journey.notes.map((note) => <li key={note} className="border-l border-terracotta/40 pl-4">{note}</li>)}
@@ -282,6 +276,21 @@ function NotFoundPage() {
 }
 
 export default function App() {
+  const { pathname } = useLocation();
+
+  // Scroll to top on every route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname]);
+
+  // Back to top button visibility
+  const [showTop, setShowTop] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 600);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
       <Header />
@@ -301,6 +310,21 @@ export default function App() {
       </main>
       <Footer />
       <Toaster />
+
+      {/* Back to top button */}
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Back to top"
+        className={[
+          "fixed bottom-8 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-ink/20 bg-sand/90 text-ink shadow-lift backdrop-blur-sm transition-all duration-500 hover:bg-terracotta hover:text-sand hover:border-terracotta md:right-10",
+          showTop ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none",
+        ].join(" ")}
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M7 12V2M2 7l5-5 5 5" />
+        </svg>
+      </button>
     </>
   );
 }

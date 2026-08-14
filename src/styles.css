@@ -10,6 +10,7 @@
  */
 @theme inline {
   --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-display-alt: "Playfair Display", Georgia, serif;
   --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
   --color-sand: var(--sand);
   --color-sand-deep: var(--sand-deep);
