@@ -1,4 +1,3 @@
-import philosophy from "@/assets/philosophy.webp";
 import { Eyebrow, ParallaxImage, Shell, TextLink } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 
@@ -15,7 +14,7 @@ export function Philosophy() {
 
         <div className="mt-20 grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
           <ParallaxImage
-            src={philosophy}
+            src="/WhatsApp Image 2026-08-16 at 12.05.14 AM.jpeg"
             alt="Indian artisan at work — the craft traditions of Rajasthan"
             className="aspect-[4/5] w-full"
             width={1000}
@@ -26,26 +25,21 @@ export function Philosophy() {
           <div className="lg:pt-16">
             <Reveal delay={120}>
               <p className="font-[family-name:var(--font-display)] text-[clamp(1.6rem,2.6vw,2.4rem)] leading-[1.25]">
-                Since 2018, we have been hosting local and international clients across India's most
-                extraordinary cities — with over 100 five-star Google reviews and a simple promise:
-                we take care of everything.
+                In 2018, we started with two people, one simple idea, and a genuine love for travellers and India.
               </p>
             </Reveal>
             <Reveal delay={220}>
               <p className="body-lead mt-10 max-w-lg">
-                You arrive. We handle the rest. Private luxury transport, 4 and 5-star hotels,
-                a dedicated host with you 24/7, monument entries, cultural experiences and daily
-                breakfast — all confirmed before you leave home.
+                We asked ourselves: what if travelling to India could feel less like following an itinerary and more like being hosted by someone who truly knows the country? That question became everything we do.
               </p>
             </Reveal>
             <Reveal delay={300}>
               <p className="body-lead mt-6 max-w-lg">
-                One trip. Three iconic cities. Delhi, Agra and Jaipur — the heritage, the Taj
-                Mahal and the Pink City — experienced the way they deserve to be.
+                Today, with over 100 five-star Google reviews and journeys built for international travellers, we bring together personal hosting and global reach — so you can experience the real India with confidence, comfort and a genuine human connection.
               </p>
             </Reveal>
             <Reveal delay={380} className="mt-12">
-              <TextLink to="/about">Our Story</TextLink>
+              <TextLink to="/about">Our Full Story</TextLink>
             </Reveal>
           </div>
         </div>
