@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { CurrencyPrice } from "@/components/site/CurrencyPrice";
 
 import { Hero } from "@/components/home/Hero";
+import { SocialStrip } from "@/components/home/SocialStrip";
 import { FeaturedJourney } from "@/components/home/FeaturedJourney";
 import { Philosophy } from "@/components/home/Philosophy";
 import { PageHeader } from "@/components/site/PageHeader";
@@ -35,6 +36,7 @@ function HomePage() {
       <DestinationsGrid />
       <JourneysSection limit={2} />
       <StoriesSection />
+      <SocialStrip />
       <EnquirySection />
     </>
   );
@@ -161,7 +163,7 @@ function JourneyDetailPage() {
                 ))}
                 <div className="col-span-2 border-t border-line pt-8">
                   <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft mb-4">Early Bird Price</dt>
-                  <CurrencyPrice usd={3999} />
+                  <CurrencyPrice />
                 </div>
               </dl>
             </Reveal>

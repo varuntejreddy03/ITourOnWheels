@@ -57,7 +57,7 @@ export function JourneysSection({
                         </li>
                       ))}
                     </ul>
-                    <CurrencyPrice usd={3999} className="mt-8" />
+                  <CurrencyPrice className="mt-8" />
                     <div className="mt-10">
                       <Action to={`/journeys/${journey.slug}`} variant="outline">
                         View Journey

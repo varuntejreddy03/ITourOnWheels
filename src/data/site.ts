@@ -11,7 +11,6 @@ export const site = {
   phone: "+1 (267) 298-7777",
   location: "2150 Infinity Drive, Midlothian, VA 23114",
   socials: [
-    { label: "Instagram", href: "#" },
     { label: "Facebook", href: "#" },
     { label: "LinkedIn", href: "https://www.linkedin.com/company/i-tour-on-wheels" },
     { label: "YouTube", href: "#" },

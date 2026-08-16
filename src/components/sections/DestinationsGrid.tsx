@@ -72,7 +72,7 @@ function DestCard({
     <Reveal className={cn("group relative overflow-hidden rounded-sm bg-ink", className)}>
       <Link to={`/destinations/${dest.slug}`} className="block h-full">
         {/* Image */}
-        <div className={cn("relative w-full overflow-hidden", tall ? "h-full min-h-[520px]" : wide ? "aspect-[16/7]" : "aspect-[4/3]")}>
+        <div className={cn("relative w-full overflow-hidden", tall ? "h-full min-h-[520px]" : wide ? "aspect-[16/7]" : "aspect-[4/3] min-h-[260px]")}>
           <img
             src={dest.image}
             alt={dest.name}
@@ -88,17 +88,17 @@ function DestCard({
               {dest.region}
             </span>
             <h3 className={cn(
-              "mt-2 font-[family-name:var(--font-display)] text-sand leading-none",
-              tall ? "text-5xl md:text-6xl" : "text-4xl md:text-5xl"
+              "mt-1 font-[family-name:var(--font-display)] text-sand leading-none",
+              tall ? "text-4xl md:text-6xl" : "text-3xl md:text-5xl"
             )}>
               {dest.name}
             </h3>
             {dest.extensionOnly && (
-              <p className="mt-2 text-[0.7rem] uppercase tracking-[0.24em] text-terracotta">
-                Extension Only — Not A Standalone Trip
+              <p className="mt-1 text-[0.65rem] uppercase tracking-[0.2em] text-terracotta/90">
+                Add-on destination
               </p>
             )}
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="mt-2 flex flex-wrap gap-1.5">
               {dest.themes.map((theme) => (
                 <span
                   key={theme}

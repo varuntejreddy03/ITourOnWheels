@@ -19,17 +19,17 @@ export function Wordmark({
     >
       {/* Crest */}
       <div className={cn(
-        "shrink-0 overflow-hidden rounded-full transition-all duration-700",
+        "shrink-0 transition-all duration-700",
         overlay
-          ? "h-20 w-20 bg-ink/10 shadow-[0_4px_32px_rgba(0,0,0,0.6)] ring-2 ring-sand/30 sm:h-28 sm:w-28"
-          : "h-10 w-10 bg-sand ring-[1.5px] ring-ink/20 sm:h-12 sm:w-12",
+          ? "h-24 w-24 sm:h-28 sm:w-28"
+          : "h-12 w-12 sm:h-14 sm:w-14",
       )}>
         <img
-          src="/india-tour-on-wheels-crest.png"
+          src="/logo-transparent.png"
           alt={site.name}
-          width={96}
-          height={96}
-          className="h-full w-full object-cover scale-[1.08]"
+          width={128}
+          height={128}
+          className="h-full w-full object-contain transition-all duration-700"
         />
       </div>
 

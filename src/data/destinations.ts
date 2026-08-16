@@ -1,4 +1,4 @@
-import delhi from "@/assets/dest-delhi-monument.webp";
+import delhi from "@/assets/redfort.jpg";
 import agra from "@/assets/dest-agra-dining.webp";
 import jaipur from "@/assets/dest-jaipur-palace.webp";
 import rishikesh from "@/assets/dest-rishikesh-river.webp";

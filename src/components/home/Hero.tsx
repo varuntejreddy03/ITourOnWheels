@@ -2,13 +2,13 @@ import hero from "@/assets/hero-taj-sunrise.webp";
 import { Action } from "@/components/site/Primitives";
 import { Reveal, useParallax } from "@/components/site/Reveal";
 
-const tags = ["Private Journeys", "Culturally Led", "Hosted Personally", "Delhi · Agra · Jaipur · Rishikesh"];
+const tags = ["Private journeys.", "Personal hosting.", "Unforgettable India."];
 
 const trustPoints = [
-  { label: "Group Size", value: "Your Party Only" },
-  { label: "Dedicated Host", value: "Start to Finish" },
-  { label: "Hotels", value: "4 & 5-Star" },
-  { label: "Response", value: "Within 24 Hours" },
+  { label: "Group Size", value: "Up to 20" },
+  { label: "Dedicated Host", value: "Arrival to Departure" },
+  { label: "Airport Transfers", value: "Included" },
+  { label: "Response", value: "24/7" },
 ];
 
 export function Hero() {
@@ -55,22 +55,20 @@ export function Hero() {
         <Reveal delay={100}>
           <h1 className="mt-7 max-w-4xl text-sand" style={{ lineHeight: 0.95 }}>
             <span className="block font-[family-name:var(--font-display-alt)] text-[clamp(2.75rem,8vw,7rem)] font-medium tracking-[-0.02em] text-sand">
-              India, the way
+              India, Beyond
             </span>
             <span className="block font-[family-name:var(--font-display-alt)] text-[clamp(2.75rem,8vw,7rem)] font-light tracking-[-0.02em] text-sand/90">
-              it should be seen.
+              the Itinerary.
             </span>
           </h1>
         </Reveal>
 
         <Reveal delay={220}>
           <p className="mt-8 max-w-xl text-base leading-[1.9] text-sand/70 md:text-lg">
-            Most tours rush you through three cities in a coach with strangers.
-            Ours don't. We plan private, hosted journeys — the right hotels,
-            real access, and one dedicated host from your first transfer to your last.
+            Experience Delhi, Agra, Jaipur &amp; Rishikesh through a journey designed around you — with local insight, seamless travel, and a host personally by your side.
           </p>
           <p className="mt-3 text-sm text-sand/45">
-            No group buses. No rushed itineraries. No surprises.
+            Curated for those who want to experience India, not simply visit it.
           </p>
         </Reveal>
 

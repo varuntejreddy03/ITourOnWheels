@@ -45,7 +45,7 @@ export function Header() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-700",
           overlay
-            ? "py-6"
+            ? "py-3"
             : "border-b border-line bg-sand/95 py-3 shadow-[0_1px_20px_-6px_rgba(0,0,0,0.1)] backdrop-blur-md",
         )}
       >

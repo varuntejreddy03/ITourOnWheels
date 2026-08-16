@@ -7,7 +7,6 @@ const currencies = [
   { code: "EUR", symbol: "€",  rate: 0.92,   label: "EUR" },
   { code: "CAD", symbol: "CA$", rate: 1.36,  label: "CAD" },
   { code: "AUD", symbol: "A$", rate: 1.53,   label: "AUD" },
-  { code: "INR", symbol: "₹",  rate: 83.5,   label: "INR" },
 ];
 
 function fmt(usd: number, rate: number, symbol: string) {
@@ -17,17 +16,41 @@ function fmt(usd: number, rate: number, symbol: string) {
 }
 
 export function CurrencyPrice({
-  usd,
   className,
 }: {
-  usd: number;
   className?: string;
 }) {
   const [active, setActive] = useState("USD");
+  const [withFlights, setWithFlights] = useState(false);
   const cur = currencies.find((c) => c.code === active)!;
+  const usd = withFlights ? 4999 : 3999;
 
   return (
     <div className={cn("space-y-3", className)}>
+      {/* Flights toggle */}
+      <div className="flex gap-2">
+        <button
+          type="button"
+          onClick={() => setWithFlights(false)}
+          className={cn(
+            "rounded-[2px] border px-3 py-1.5 text-[0.55rem] uppercase tracking-[0.18em] transition-all duration-300",
+            !withFlights ? "border-terracotta bg-terracotta text-sand" : "border-line text-ink-soft hover:border-ink hover:text-ink",
+          )}
+        >
+          Without Flights
+        </button>
+        <button
+          type="button"
+          onClick={() => setWithFlights(true)}
+          className={cn(
+            "rounded-[2px] border px-3 py-1.5 text-[0.55rem] uppercase tracking-[0.18em] transition-all duration-300",
+            withFlights ? "border-terracotta bg-terracotta text-sand" : "border-line text-ink-soft hover:border-ink hover:text-ink",
+          )}
+        >
+          With Flights
+        </button>
+      </div>
+
       {/* Price display */}
       <div className="font-[family-name:var(--font-display)] text-[clamp(2rem,4vw,3rem)] leading-none text-terracotta">
         {fmt(usd, cur.rate, cur.symbol)}
