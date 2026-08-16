@@ -38,8 +38,11 @@ export function Wordmark({
         "flex flex-col leading-none transition-all duration-700",
         overlay ? "w-0 overflow-hidden opacity-0" : "w-auto opacity-100",
       )}>
-        <span className="whitespace-nowrap font-[family-name:var(--font-display-alt)] text-[1.1rem] font-medium tracking-[0.02em] text-ink sm:text-[1.2rem]">
-          ITouronwheels
+        <span className={cn(
+          "whitespace-nowrap font-[family-name:var(--font-display)] text-[1rem] font-semibold uppercase tracking-[0.08em] sm:text-[1.05rem]",
+          overlay ? "text-sand" : "text-ink"
+        )}>
+          I Tour On Wheels
         </span>
       </div>
     </Link>
