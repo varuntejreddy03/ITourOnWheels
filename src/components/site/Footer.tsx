@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { site } from "@/data/site";
+import { site, globalOffices } from "@/data/site";
 import { Wordmark } from "./Wordmark";
 
 const explore = [
@@ -39,9 +39,16 @@ export function Footer() {
                 <span className="text-[0.6rem] uppercase tracking-[0.22em] text-teal w-12 shrink-0">Email</span>
                 {site.email}
               </a>
+              <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 transition-colors hover:text-sand">
+                <span className="text-[0.6rem] uppercase tracking-[0.22em] text-teal w-12 shrink-0">WA</span>
+                Message Us
+              </a>
               <p className="flex items-start gap-3">
-                <span className="text-[0.6rem] uppercase tracking-[0.22em] text-teal w-12 shrink-0 mt-0.5">Office</span>
-                <span>{site.location}</span>
+                <span className="text-[0.6rem] uppercase tracking-[0.22em] text-teal w-12 shrink-0 mt-0.5">Hours</span>
+                <span className="space-y-0.5">
+                  <span className="block">{site.hours.weekdays}</span>
+                  <span className="block">{site.hours.weekend}</span>
+                </span>
               </p>
             </div>
           </div>
@@ -74,13 +81,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Crest + socials col */}
+          {/* Socials col */}
           <div className="flex flex-col items-start lg:items-end">
-            <img
-              src="/logo-transparent.png"
-              alt="India Tour on Wheels crest"
-              className="h-24 w-24 opacity-75"
-            />
             <div className="mt-8 flex flex-wrap gap-4 lg:justify-end">
               {site.socials.map((social) => (
                 <a
@@ -94,6 +96,26 @@ export function Footer() {
             </div>
           </div>
 
+        </div>
+
+        {/* Global Offices */}
+        <div className="border-b border-sand/10 py-12">
+          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-teal">Global Offices</p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {globalOffices.map((office) => (
+              <a
+                key={office.phone}
+                href={office.href}
+                className="flex items-center gap-4 rounded-sm border border-sand/10 p-4 transition-colors hover:border-sand/25"
+              >
+                <span className="text-2xl">{office.flag}</span>
+                <div>
+                  <p className="text-[0.58rem] uppercase tracking-[0.2em] text-sand/40">{office.region}</p>
+                  <p className="mt-0.5 font-[family-name:var(--font-display)] text-sm text-sand/80">{office.phone}</p>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Statement */}

@@ -17,34 +17,22 @@ export function Wordmark({
       aria-label={`${site.name} — home`}
       className={cn("inline-flex items-center gap-3 transition-all duration-700", className)}
     >
-      {/* Crest */}
-      <div className={cn(
-        "shrink-0 transition-all duration-700",
-        overlay
-          ? "h-24 w-24 sm:h-28 sm:w-28"
-          : "h-12 w-12 sm:h-14 sm:w-14",
-      )}>
+      {/* Crest — only show when scrolled */}
+      {!overlay && (
         <img
-          src="/logo-transparent.png"
+          src="/india-tour-on-wheels-crest.png"
           alt={site.name}
-          width={128}
-          height={128}
-          className="h-full w-full object-contain transition-all duration-700"
+          className="shrink-0 object-contain"
+          style={{ width: 80, height: 80 }}
         />
-      </div>
+      )}
 
-      {/* Name — slides in when scrolled */}
-      <div className={cn(
-        "flex flex-col leading-none transition-all duration-700",
-        overlay ? "w-0 overflow-hidden opacity-0" : "w-auto opacity-100",
-      )}>
-        <span className={cn(
-          "whitespace-nowrap font-[family-name:var(--font-display)] text-[1rem] font-semibold uppercase tracking-[0.08em] sm:text-[1.05rem]",
-          overlay ? "text-sand" : "text-ink"
-        )}>
+      {/* Name — always show when scrolled */}
+      {!overlay && (
+        <span className="whitespace-nowrap font-[family-name:var(--font-display)] text-[0.95rem] font-semibold uppercase tracking-[0.08em] text-ink sm:text-[1rem]">
           I Tour On Wheels
         </span>
-      </div>
+      )}
     </Link>
   );
 }

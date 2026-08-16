@@ -2,7 +2,7 @@ import hero from "@/assets/hero-taj-sunrise.webp";
 import { Action } from "@/components/site/Primitives";
 import { Reveal, useParallax } from "@/components/site/Reveal";
 
-const tags = ["Private journeys.", "Personal hosting.", "Unforgettable India."];
+const tags = ["Come as a Traveller. Leave with a Story."];
 
 const trustPoints = [
   { label: "Group Size", value: "Up to 20" },
@@ -31,6 +31,16 @@ export function Hero() {
         />
         {/* Heavy gradient — ensures text is always legible */}
         <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/55 to-ink/15" />
+      </div>
+
+      {/* Logo centred at top of hero */}
+      <div className="absolute top-0 left-1/2 z-20 -translate-x-1/2 -translate-y-1/4">
+        <img
+          src="/logo-transparent.png"
+          alt="I Tour On Wheels"
+          className="drop-shadow-[0_2px_16px_rgba(0,0,0,0.7)]"
+          style={{ width: 320, height: 320, objectFit: "contain" }}
+        />
       </div>
 
       {/* Content */}
@@ -68,7 +78,7 @@ export function Hero() {
             Experience Delhi, Agra, Jaipur &amp; Rishikesh through a journey designed around you — with local insight, seamless travel, and a host personally by your side.
           </p>
           <p className="mt-3 text-sm text-sand/45">
-            Curated for those who want to experience India, not simply visit it.
+            Walk its streets. Taste its flavors. Meet its people. Feel its chaos, warmth, beauty and soul.
           </p>
         </Reveal>
 

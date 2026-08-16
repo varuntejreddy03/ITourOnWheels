@@ -14,9 +14,9 @@ export function Philosophy() {
 
         <div className="mt-20 grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
           <ParallaxImage
-            src="/WhatsApp Image 2026-08-16 at 12.05.14 AM.jpeg"
-            alt="Indian artisan at work — the craft traditions of Rajasthan"
-            className="aspect-[4/5] w-full"
+            src="/WhatsApp Image 2026-08-16 at 11.00.18 PM.jpeg"
+            alt="Our Philosophy — India Unveiled"
+            className="w-full h-full min-h-[500px]"
             width={1000}
             height={1300}
             eager

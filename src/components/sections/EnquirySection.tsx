@@ -1,7 +1,7 @@
 import { Eyebrow, Shell } from "@/components/site/Primitives";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
 import { Reveal } from "@/components/site/Reveal";
-import { site } from "@/data/site";
+import { site, globalOffices } from "@/data/site";
 
 export function EnquirySection({
   defaultDestination,
@@ -46,10 +46,34 @@ export function EnquirySection({
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">Based</dt>
-                  <dd className="mt-2">{site.location}</dd>
+                  <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">WhatsApp</dt>
+                  <dd className="mt-2">
+                    <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="link-underline">Message Us</a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">Hours</dt>
+                  <dd className="mt-2 space-y-1 text-ink-soft">
+                    <p>{site.hours.weekdays}</p>
+                    <p>{site.hours.weekend}</p>
+                  </dd>
                 </div>
               </dl>
+            </Reveal>
+
+            <Reveal delay={320}>
+              <p className="mt-12 text-[0.7rem] uppercase tracking-[0.28em] text-teal">Global Offices</p>
+              <ul className="mt-4 space-y-3">
+                {globalOffices.map((office) => (
+                  <li key={office.phone} className="flex items-center gap-4 rounded-sm border border-line p-4">
+                    <span className="text-2xl">{office.flag}</span>
+                    <div>
+                      <p className="text-[0.6rem] uppercase tracking-[0.22em] text-ink-soft">{office.region}</p>
+                      <a href={office.href} className="font-[family-name:var(--font-display)] text-base transition-colors hover:text-terracotta">{office.phone}</a>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </Reveal>
           </div>
 
