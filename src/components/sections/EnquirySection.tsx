@@ -32,36 +32,6 @@ export function EnquirySection({
               </p>
             </Reveal>
             <Reveal delay={260}>
-              <dl className="mt-14 space-y-6 border-t border-line pt-10 text-sm">
-                <div>
-                  <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">Email</dt>
-                  <dd className="mt-2">
-                    <a href={`mailto:${site.email}`} className="link-underline">{site.email}</a>
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">Phone</dt>
-                  <dd className="mt-2">
-                    <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`} className="link-underline">{site.phone}</a>
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">WhatsApp</dt>
-                  <dd className="mt-2">
-                    <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="link-underline">Message Us</a>
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-[0.7rem] uppercase tracking-[0.26em] text-ink-soft">Hours</dt>
-                  <dd className="mt-2 space-y-1 text-ink-soft">
-                    <p>{site.hours.weekdays}</p>
-                    <p>{site.hours.weekend}</p>
-                  </dd>
-                </div>
-              </dl>
-            </Reveal>
-
-            <Reveal delay={320}>
               <p className="mt-12 text-[0.7rem] uppercase tracking-[0.28em] text-teal">Global Offices</p>
               <ul className="mt-4 space-y-3">
                 {globalOffices.map((office) => (

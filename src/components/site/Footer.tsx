@@ -111,7 +111,7 @@ export function Footer() {
                 <span className="text-2xl">{office.flag}</span>
                 <div>
                   <p className="text-[0.58rem] uppercase tracking-[0.2em] text-sand/40">{office.region}</p>
-                  <p className="mt-0.5 font-[family-name:var(--font-display)] text-sm text-sand/80">{office.phone}</p>
+                  <p className="mt-0.5 text-sm text-sand/80">{office.phone}</p>
                 </div>
               </a>
             ))}
