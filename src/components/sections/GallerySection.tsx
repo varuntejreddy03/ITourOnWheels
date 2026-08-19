@@ -61,7 +61,9 @@ export function GallerySection({ filterable = true }: { filterable?: boolean }) 
           </Reveal>
         )}
 
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-12 lg:gap-5">
+      </Shell>
+
+      <div className="mt-16 grid grid-cols-1 gap-4 px-0 sm:grid-cols-12 lg:gap-5">
           {images.map((image, index) => (
             <Reveal
               key={image.src + index}
@@ -91,7 +93,6 @@ export function GallerySection({ filterable = true }: { filterable?: boolean }) 
             </Reveal>
           ))}
         </div>
-      </Shell>
 
       <Dialog open={selected !== null} onOpenChange={(open) => !open && setSelected(null)}>
         <DialogContent className="max-w-4xl w-[92vw] border-none bg-transparent p-0 shadow-none sm:rounded-none">
