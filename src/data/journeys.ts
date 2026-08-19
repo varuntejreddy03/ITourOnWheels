@@ -239,7 +239,7 @@ export const journeys: Journey[] = [
     slug: "north-india-himalaya",
     status: "coming-soon",
     label: "Coming Soon",
-    title: "North India & the Himalaya",
+    title: "North India & The Himalayas",
     duration: "Being organised",
     route: "Delhi → Rishikesh → Shimla → Dharamshala",
     regions: ["North India"],
