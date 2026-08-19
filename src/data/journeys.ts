@@ -1,5 +1,6 @@
 import hero from "@/assets/featured-golden-triangle.webp";
 import taj from "@/assets/exp-taj-sunrise.webp";
+import redfort from "@/assets/redfort.jpg";
 import rickshaw from "@/assets/exp-rickshaw.webp";
 import musicNight from "@/assets/exp-music-night.webp";
 import turban from "@/assets/exp-turban.webp";
@@ -168,7 +169,7 @@ export const journeys: Journey[] = [
         place: "Delhi",
         description:
           "Through Chandni Chowk at street level and human speed — past spice warehouses, silver shops, street food stalls and mosques that have been here since the 17th century.",
-        image: rickshaw,
+        image: redfort,
       },
       {
         title: "Live Indian Music Evening",
