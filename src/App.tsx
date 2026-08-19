@@ -46,8 +46,8 @@ function AboutPage() {
   useTitle(`About Us — ${site.name}`);
   return (
     <>
-      <PageHeader eyebrow="About Us" title="Our" italic="Story" intro="From two people with one idea in 2018 — to hosting travellers from across the world. This is how I Tour On Wheels began." />
-      <Philosophy />
+      <PageHeader eyebrow="About Us" title="Our" italic="Story" />
+      <Philosophy showLink={false} />
       <AboutSection withLink={false} />
       <StoriesSection />
       <EnquirySection />

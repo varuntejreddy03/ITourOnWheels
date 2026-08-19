@@ -1,7 +1,7 @@
 import { Eyebrow, Shell, TextLink } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 
-export function Philosophy() {
+export function Philosophy({ showLink = true }: { showLink?: boolean }) {
   return (
     <section className="border-y border-line bg-sand-deep py-28 md:py-40">
       <Shell>
@@ -24,11 +24,6 @@ export function Philosophy() {
           />
 
           <div className="lg:pt-16">
-            <Reveal delay={120}>
-              <p className="font-[family-name:var(--font-display)] text-[clamp(1.6rem,2.6vw,2.4rem)] leading-[1.25]">
-                In 2018, we started with two people, one simple idea, and a genuine love for travellers and India.
-              </p>
-            </Reveal>
             <Reveal delay={220}>
               <p className="body-lead mt-10 max-w-lg">
                 We asked ourselves: what if travelling to India could feel less like following an itinerary and more like being hosted by someone who truly knows the country? That question became everything we do.
@@ -40,7 +35,7 @@ export function Philosophy() {
               </p>
             </Reveal>
             <Reveal delay={380} className="mt-12">
-              <TextLink to="/about">Our Full Story</TextLink>
+              {showLink && <TextLink to="/about">Our Full Story</TextLink>}
             </Reveal>
           </div>
         </div>

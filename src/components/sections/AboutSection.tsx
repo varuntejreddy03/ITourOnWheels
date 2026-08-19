@@ -1,5 +1,7 @@
 import about from "@/assets/about-haveli.webp";
 import aboutTeam from "@/assets/about-team.webp";
+import camel from "@/assets/gurudongmar-lake.jpg";
+import fort from "@/assets/fort.jpg";
 import { Eyebrow, ParallaxImage, Shell, TextLink } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 
@@ -76,8 +78,8 @@ export function AboutSection({ withLink = true }: { withLink?: boolean }) {
             </div>
 
             <ParallaxImage
-              src={about}
-              alt="Travelers at the Taj Mahal — I Tour On Wheels"
+              src={camel}
+              alt="Camel safari — I Tour On Wheels"
               className="aspect-[4/3] w-full"
               width={1600}
               height={1000}
@@ -115,8 +117,8 @@ export function AboutSection({ withLink = true }: { withLink?: boolean }) {
                   </Reveal>
                 </div>
                 <ParallaxImage
-                  src={aboutTeam}
-                  alt="I Tour On Wheels team"
+                  src={fort}
+                  alt="Historic fort — I Tour On Wheels"
                   className="aspect-[4/3] w-full"
                   width={1600}
                   height={1000}
