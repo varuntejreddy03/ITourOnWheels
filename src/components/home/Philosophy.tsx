@@ -1,4 +1,4 @@
-import { Eyebrow, ParallaxImage, Shell, TextLink } from "@/components/site/Primitives";
+import { Eyebrow, Shell, TextLink } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 
 export function Philosophy() {
@@ -13,13 +13,14 @@ export function Philosophy() {
         </h2>
 
         <div className="mt-20 grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
-          <ParallaxImage
+          <img
             src="/WhatsApp Image 2026-08-16 at 11.00.18 PM.jpeg"
             alt="Our Philosophy — India Unveiled"
-            className="w-full h-full min-h-[500px]"
             width={1000}
             height={1300}
-            eager
+            loading="eager"
+            decoding="async"
+            className="w-full h-auto"
           />
 
           <div className="lg:pt-16">

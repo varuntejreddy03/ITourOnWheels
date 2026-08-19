@@ -74,7 +74,8 @@ export const journeys: Journey[] = [
       { label: "Group Size", value: "Max 20 per departure" },
       { label: "Host", value: "Dedicated 24/7" },
       { label: "Flights", value: "Included" },
-      { label: "Early Bird", value: "$3,999 per person" },
+      { label: "Without Flights", value: "$4,999 per person" },
+      { label: "With Flights", value: "$5,999 per person" },
     ],
     cities: [
       {
@@ -209,8 +210,8 @@ export const journeys: Journey[] = [
       "All applicable taxes, tolls and driver charges",
     ],
     notes: [
-      "Early-bird price $3,999 per person includes flights, hotels, transfers, breakfast and all experiences.",
-      "Original price $4,999 per person. Reserve your spot with a $1,999 deposit.",
+      "Without Flights: $4,999 per person. With Flights: $5,999 per person.",
+      "Reserve your spot with a $1,999 deposit.",
       "Group departures: November 2026 · December 2026 · January 2027 · February 2027. Max 20 seats per group.",
       "Indian visa fees and travel insurance are not included.",
       "Hotels confirmed at booking. Full details shared before departure.",

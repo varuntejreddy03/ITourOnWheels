@@ -23,7 +23,7 @@ export function CurrencyPrice({
   const [active, setActive] = useState("USD");
   const [withFlights, setWithFlights] = useState(false);
   const cur = currencies.find((c) => c.code === active)!;
-  const usd = withFlights ? 4999 : 3999;
+  const usd = withFlights ? 5999 : 4999;
 
   return (
     <div className={cn("space-y-3", className)}>

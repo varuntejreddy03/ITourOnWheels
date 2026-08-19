@@ -78,7 +78,7 @@ export function Hero() {
             Experience Delhi, Agra, Jaipur &amp; Rishikesh through a journey designed around you — with local insight, seamless travel, and a host personally by your side.
           </p>
           <p className="mt-3 text-sm text-sand/45">
-            Walk its streets. Taste its flavors. Meet its people. Feel its chaos, warmth, beauty and soul.
+            Walk it's streets. Taste it's flavors. Meet it's people. Feel it's chaos, warmth, beauty and soul.
           </p>
         </Reveal>
 
@@ -100,20 +100,7 @@ export function Hero() {
         </Reveal>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="text-[0.52rem] uppercase tracking-[0.32em] text-sand/30">Scroll</span>
-        <span className="relative h-10 w-[1px] overflow-hidden bg-sand/15">
-          <span className="absolute inset-x-0 top-0 h-1/2 animate-[scrollLine_1.8s_ease-in-out_infinite] bg-sand/50" />
-        </span>
-      </div>
 
-      <style>{`
-        @keyframes scrollLine {
-          0%   { transform: translateY(-100%); }
-          100% { transform: translateY(300%); }
-        }
-      `}</style>
     </section>
   );
 }
