@@ -2,7 +2,6 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { toast } from "sonner";
 import { destinations } from "@/data/destinations";
 import { journeys } from "@/data/journeys";
-import { site } from "@/data/site";
 import { Action } from "./Primitives";
 
 const empty = {
@@ -34,35 +33,25 @@ export function EnquiryForm({
     setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
   };
 
-  const onSubmit = (event: FormEvent) => {
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (event: FormEvent) => {
     event.preventDefault();
-
-    // Format a clean WhatsApp message
-    const lines = [
-      `🙏 *New Journey Enquiry — I Tour On Wheels*`,
-      ``,
-      `👤 *Name:* ${values.name}`,
-      `📧 *Email:* ${values.email}`,
-      `📞 *Phone:* ${values.phone || "Not provided"}`,
-      ``,
-      `🗺️ *Destination:* ${values.destination || "Not specified"}`,
-      `✈️ *Journey:* ${values.journey || "Not specified"}`,
-      `📅 *Travel Dates:* ${values.dates || "Flexible"}`,
-      `👥 *Travelers:* ${values.travelers || "Not specified"}`,
-      ``,
-      values.message ? `💬 *Message:*\n${values.message}` : "",
-    ].filter(Boolean).join("\n");
-
-    // WhatsApp number — strip non-digits from site phone
-    const waNumber = site.phone.replace(/\D/g, "");
-    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(lines)}`;
-
-    window.open(waUrl, "_blank", "noopener,noreferrer");
-
-    toast.success("Opening WhatsApp with your enquiry", {
-      description: `You can also reach us at ${site.phone}`,
-    });
-    setValues({ ...empty, destination: defaultDestination, journey: defaultJourney });
+    setLoading(true);
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) throw new Error();
+      toast.success("Enquiry sent!", { description: "We'll reply within one working day." });
+      setValues({ ...empty, destination: defaultDestination, journey: defaultJourney });
+    } catch {
+      toast.error("Failed to send", { description: "Please try WhatsApp or email us directly." });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -209,8 +198,8 @@ export function EnquiryForm({
       </div>
 
       <div className="sm:col-span-2 flex flex-wrap items-center gap-5">
-        <Action type="submit">Send via WhatsApp</Action>
-        <p className="text-sm text-ink-soft">Opens WhatsApp with your details pre-filled. We reply within one working day.</p>
+        <Action type="submit" disabled={loading}>{loading ? "Sending…" : "Send Enquiry"}</Action>
+        <p className="text-sm text-ink-soft">We reply within one working day.</p>
       </div>
     </form>
   );
