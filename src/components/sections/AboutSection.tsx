@@ -1,8 +1,4 @@
-import about from "@/assets/about-haveli.webp";
-import aboutTeam from "@/assets/about-team.webp";
-import camel from "@/assets/gurudongmar-lake.jpg";
-import fort from "@/assets/fort.jpg";
-import { Eyebrow, ParallaxImage, Shell, TextLink } from "@/components/site/Primitives";
+import { Eyebrow, Shell, TextLink } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 
 const credentials = [
@@ -26,7 +22,7 @@ export function AboutSection({ withLink = true }: { withLink?: boolean }) {
       {/* Origin story */}
       <section className="bg-ink py-28 text-sand md:py-40">
         <Shell>
-          <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
+          <div className="grid gap-16 lg:grid-cols-1 lg:gap-24">
             <div>
               <Reveal>
                 <Eyebrow className="text-teal">Our Story</Eyebrow>
@@ -76,14 +72,6 @@ export function AboutSection({ withLink = true }: { withLink?: boolean }) {
                 </Reveal>
               )}
             </div>
-
-            <ParallaxImage
-              src={camel}
-              alt="Camel safari — I Tour On Wheels"
-              className="aspect-[4/3] w-full"
-              width={1600}
-              height={1000}
-            />
           </div>
         </Shell>
       </section>
@@ -93,7 +81,7 @@ export function AboutSection({ withLink = true }: { withLink?: boolean }) {
         <>
           <section className="bg-sand py-28 md:py-40">
             <Shell>
-              <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+              <div className="grid gap-16 lg:grid-cols-1 lg:gap-24">
                 <div>
                   <Reveal>
                     <Eyebrow>What We Learned</Eyebrow>
@@ -116,13 +104,6 @@ export function AboutSection({ withLink = true }: { withLink?: boolean }) {
                     </p>
                   </Reveal>
                 </div>
-                <ParallaxImage
-                  src={fort}
-                  alt="Historic fort — I Tour On Wheels"
-                  className="aspect-[4/3] w-full"
-                  width={1600}
-                  height={1000}
-                />
               </div>
             </Shell>
           </section>
