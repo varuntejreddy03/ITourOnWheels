@@ -2,6 +2,7 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { toast } from "sonner";
 import { destinations } from "@/data/destinations";
 import { journeys } from "@/data/journeys";
+import { site } from "@/data/site";
 import { Action } from "./Primitives";
 
 const empty = {
@@ -35,23 +36,25 @@ export function EnquiryForm({
 
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = async (event: FormEvent) => {
+  const onSubmit = (event: FormEvent) => {
     event.preventDefault();
-    setLoading(true);
-    try {
-      const res = await fetch("/api/enquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-      if (!res.ok) throw new Error();
-      toast.success("Enquiry sent!", { description: "We'll reply within one working day." });
-      setValues({ ...empty, destination: defaultDestination, journey: defaultJourney });
-    } catch {
-      toast.error("Failed to send", { description: "Please try WhatsApp or email us directly." });
-    } finally {
-      setLoading(false);
-    }
+    const lines = [
+      `🙏 *New Journey Enquiry — I Tour On Wheels*`,
+      ``,
+      `👤 *Name:* ${values.name}`,
+      `📧 *Email:* ${values.email}`,
+      `📞 *Phone:* ${values.phone || "Not provided"}`,
+      ``,
+      `🗺️ *Destination:* ${values.destination || "Not specified"}`,
+      `✈️ *Journey:* ${values.journey || "Not specified"}`,
+      `📅 *Travel Dates:* ${values.dates || "Flexible"}`,
+      `👥 *Travelers:* ${values.travelers || "Not specified"}`,
+      values.message ? `\n💬 *Message:*\n${values.message}` : "",
+    ].filter(Boolean).join("\n");
+    const waNumber = site.phone.replace(/\D/g, "");
+    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(lines)}`, "_blank", "noopener,noreferrer");
+    toast.success("Opening WhatsApp with your enquiry");
+    setValues({ ...empty, destination: defaultDestination, journey: defaultJourney });
   };
 
   return (
@@ -198,8 +201,8 @@ export function EnquiryForm({
       </div>
 
       <div className="sm:col-span-2 flex flex-wrap items-center gap-5">
-        <Action type="submit" disabled={loading}>{loading ? "Sending…" : "Send Enquiry"}</Action>
-        <p className="text-sm text-ink-soft">We reply within one working day.</p>
+        <Action type="submit">Send via WhatsApp</Action>
+        <p className="text-sm text-ink-soft">Opens WhatsApp with your details pre-filled. We reply within one working day.</p>
       </div>
     </form>
   );
